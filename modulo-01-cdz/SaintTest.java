@@ -38,12 +38,10 @@ public class SaintTest {
         jabu.setGenero(Genero.FEMININO);
         assertEquals(Genero.FEMININO, jabu.getGenero());
     }
-
     
-    
-    
-    
-    
+    @Test
+    public void statusInicialDeveSerVivo() {
+        Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE));
+        assertEquals(Status.VIVO, shiryu.getStatus());
+    }   
 }
-
-

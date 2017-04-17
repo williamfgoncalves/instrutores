@@ -3,6 +3,7 @@ public class Saint {
     private Armadura armadura;
     private boolean armaduraVestida;
     private Genero genero = Genero.NAO_INFORMADO;
+    private Status status = Status.VIVO;
     
     public Saint(String nome, Armadura armadura) {
         this.nome = nome;
@@ -25,4 +26,18 @@ public class Saint {
     public void setGenero(Genero genero) {
         this.genero = genero;
     }
+    
+    public Status getStatus() {
+        return this.status;
+    }
 }
+
+
+
+
+
+
+
+
+
+
