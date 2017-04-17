@@ -60,7 +60,7 @@ public class SaintTest {
         // Assert
         assertEquals(90, shiryu.getVida(), 0.01);
     }
-    
+
     @Test
     public void perderDanoComValor100() {
         // Arrange
@@ -70,7 +70,7 @@ public class SaintTest {
         // Assert
         assertEquals(0, shiryu.getVida(), 0.01);
     }
-    
+
     @Test
     public void perderDanoComValor1000() {
         // Arrange
@@ -80,7 +80,7 @@ public class SaintTest {
         // Assert
         assertEquals(-900, shiryu.getVida(), 0.01);
     }
-    
+
     @Test
     public void perderDanoComValorMenos1000() {
         // Arrange
@@ -90,21 +90,26 @@ public class SaintTest {
         // Assert
         assertEquals(1100, shiryu.getVida(), 0.01);
     }
-    
+
     @Test
     public void criarSaintNasceCom5SentidosDespertados() {
         Saint seiya = new Saint("Seiya", new Armadura("Pégaso", Categoria.BRONZE));
         assertEquals(5, seiya.getQtdSentidosDespertados());
     }
 
+    @Test
+    public void criarSaintPrataNasceCom6SentidosDespertados() {
+        Saint marin = new Saint("Marin", new Armadura("Águia", Categoria.PRATA));
+        assertEquals(6, marin.getQtdSentidosDespertados());
+    }
+    
+    @Test
+    public void criarSaintOuroNasceCom7SentidosDespertados() {
+        Saint afrodite = new Saint("Afrodite", new Armadura("Peixes", Categoria.OURO));
+        assertEquals(7, afrodite.getQtdSentidosDespertados());
+    }
+
 }
-
-
-
-
-
-
-
 
 
 
