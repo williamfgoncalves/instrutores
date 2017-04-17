@@ -90,6 +90,12 @@ public class SaintTest {
         // Assert
         assertEquals(1100, shiryu.getVida(), 0.01);
     }
+    
+    @Test
+    public void criarSaintNasceCom5SentidosDespertados() {
+        Saint seiya = new Saint("Seiya", new Armadura("Pégaso", Categoria.BRONZE));
+        assertEquals(5, seiya.getQtdSentidosDespertados());
+    }
 
 }
 
