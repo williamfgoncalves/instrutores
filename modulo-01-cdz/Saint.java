@@ -26,13 +26,3 @@ public class Saint {
         this.genero = genero;
     }
 }
-
-
-
-
-
-
-
-
-
-
