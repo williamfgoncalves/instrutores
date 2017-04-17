@@ -16,32 +16,34 @@ public class SaintTest {
         boolean resultado = milo.getArmaduraVestida();
         assertEquals(true, resultado);
     }
-    
+
     @Test
     public void naoVestirArmaduraDeixaArmaduraNaoVestida() {
         Saint hyoga = new Saint("Hyoga", new Armadura("Cisne", Categoria.BRONZE));
         assertEquals(false, hyoga.getArmaduraVestida());
     }
-    
+
     @Test
     public void aoCriarSaintGeneroENaoInformado() {
         Armadura virgem = new Armadura("Virgem", Categoria.OURO);
         Saint shaka = new Saint("Shaka", virgem);
         assertEquals(Genero.NAO_INFORMADO, shaka.getGenero());
     }
-    
-    
-    
-    
-    
-    
+
+    @Test
+    public void deveSerPossivelAlterarOGenero() {
+        Saint jabu = new Saint("Jabu", new Armadura("Unicórnio", Categoria.BRONZE));
+        jabu.setGenero(Genero.MASCULINO);
+        assertEquals(Genero.MASCULINO, jabu.getGenero());
+        jabu.setGenero(Genero.FEMININO);
+        assertEquals(Genero.FEMININO, jabu.getGenero());
+    }
+
     
     
     
     
     
 }
-
-
 
 
