@@ -41,6 +41,10 @@ public class Saint {
         this.vida -= dano;
     }
     
+    public Armadura getArmadura() {
+        return this.armadura;
+    }
+    
 }
 
 
