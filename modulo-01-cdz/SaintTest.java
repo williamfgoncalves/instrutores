@@ -50,4 +50,60 @@ public class SaintTest {
         Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE));
         assertEquals(100.0, shiryu.getVida(), 0.01);
     }
+
+    @Test
+    public void perderDanoComValor10() {
+        // Arrange
+        Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE));
+        // Act
+        shiryu.perderVida(10);
+        // Assert
+        assertEquals(90, shiryu.getVida(), 0.01);
+    }
+    
+    @Test
+    public void perderDanoComValor100() {
+        // Arrange
+        Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE));
+        // Act
+        shiryu.perderVida(100);
+        // Assert
+        assertEquals(0, shiryu.getVida(), 0.01);
+    }
+    
+    @Test
+    public void perderDanoComValor1000() {
+        // Arrange
+        Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE));
+        // Act
+        shiryu.perderVida(1000);
+        // Assert
+        assertEquals(-900, shiryu.getVida(), 0.01);
+    }
+    
+    @Test
+    public void perderDanoComValorMenos1000() {
+        // Arrange
+        Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE));
+        // Act
+        shiryu.perderVida(-1000);
+        // Assert
+        assertEquals(1100, shiryu.getVida(), 0.01);
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
