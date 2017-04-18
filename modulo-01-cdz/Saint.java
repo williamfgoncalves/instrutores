@@ -1,3 +1,5 @@
+import java.security.InvalidParameterException;
+
 public class Saint {
     private String nome;
     private Armadura armadura;
@@ -40,8 +42,19 @@ public class Saint {
     }
 
     public void perderVida(double dano) {
-        //this.vida = this.vida - dano;
-        this.vida -= dano;
+
+        if (dano < 0) {
+            throw new InvalidParameterException("dano");
+            //throw new IllegalArgumentException("dano");
+        }
+
+        if (vida - dano < 1) {
+            this.status = Status.MORTO;
+            this.vida = 0;
+        } else {
+            //this.vida = this.vida - dano;
+            this.vida -= dano;
+        }
     }
 
     public Armadura getArmadura() {
