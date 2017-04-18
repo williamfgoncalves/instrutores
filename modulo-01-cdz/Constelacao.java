@@ -7,6 +7,10 @@ public class Constelacao {
         this.nome = nome;
     }
     
+    public String getNome() {
+        return this.nome;
+    }
+    
     public Golpe[] getGolpes() {
         return this.golpes;
     }
