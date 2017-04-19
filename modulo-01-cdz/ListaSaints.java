@@ -34,4 +34,16 @@ public class ListaSaints {
             .findFirst()
             .orElse(null);
     }
+    
+    public ArrayList<Saint> buscarPorCategoria(Categoria categoria) {
+        ArrayList<Saint> subLista = new ArrayList<Saint>();
+        //
+        for (Saint saint : this.saints) {
+            if (saint.getArmadura().getCategoria().equals(categoria)) {
+                subLista.add(saint);
+            }
+        }
+        return subLista;
+    }
+    
 }
