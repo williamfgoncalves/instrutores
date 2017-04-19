@@ -78,4 +78,50 @@ public class ListaSaintsTest {
         assertEquals(2, resultadoBusca.size());
     }
 
+    @Test
+    public void buscarPorStatusListaVazia() {
+        ListaSaints listaSaints = new ListaSaints();
+        ArrayList<Saint> resultadoBusca = listaSaints.buscarPorStatus(Status.VIVO);
+        assertEquals(new ArrayList<Saint>(), resultadoBusca);
+    }
+
+    @Test
+    public void buscarPorStatusInexistente() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        listaSaints.adicionar(june);
+        ArrayList<Saint> resultadoBusca = listaSaints.buscarPorStatus(Status.MORTO);
+        assertEquals(new ArrayList<Saint>(), resultadoBusca);
+    }
+
+    @Test
+    public void buscarPorStatusExistente() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        listaSaints.adicionar(misty);
+        listaSaints.adicionar(june);
+        misty.perderVida(100);
+        ArrayList<Saint> resultadoBusca = listaSaints.buscarPorStatus(Status.VIVO);
+        assertEquals(june, resultadoBusca.get(0));
+        assertEquals(1, resultadoBusca.size());
+    }
+
+    @Test
+    public void buscarPorStatusComMaisDeUmExistenteNaCategoria() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        Saint shun = new Saint("June", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
+        listaSaints.adicionar(shun);
+        listaSaints.adicionar(misty);
+        listaSaints.adicionar(june);
+        shun.perderVida(100);
+        june.perderVida(100);
+        ArrayList<Saint> resultadoBusca = listaSaints.buscarPorStatus(Status.MORTO);
+        assertEquals(shun, resultadoBusca.get(0));
+        assertEquals(june, resultadoBusca.get(1));
+        assertEquals(2, resultadoBusca.size());
+    }
 }
+

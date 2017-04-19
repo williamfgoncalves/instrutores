@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class ListaSaints {
     private ArrayList<Saint> saints = new ArrayList<Saint>();
@@ -44,6 +45,12 @@ public class ListaSaints {
             }
         }
         return subLista;
+    }
+    
+    public ArrayList<Saint> buscarPorStatus(Status status) {
+        return (ArrayList<Saint>)this.saints.stream()
+            .filter(s -> s.getStatus().equals(status))
+            .collect(Collectors.toList());
     }
     
 }
