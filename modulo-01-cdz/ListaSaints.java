@@ -66,4 +66,22 @@ public class ListaSaints {
         return maiorVida;
     }
     
+    public Saint getSaintMenorVida() {
+        
+        if (saints.isEmpty()) {
+            return null;
+        }
+        
+        Saint menorVida = this.saints.get(0);
+        for (int i = 1; i < this.saints.size(); i++) {
+            Saint saint = this.saints.get(i);
+            boolean encontreiMenor = saint.getVida() < menorVida.getVida();
+            if (encontreiMenor) {
+                menorVida = saint;
+            }
+        }
+        
+        return menorVida;
+    }
+    
 }
