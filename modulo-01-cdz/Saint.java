@@ -42,6 +42,10 @@ public class Saint {
     public double getVida() {
         return this.vida;
     }
+    
+    public String getNome() {
+        return this.nome;
+    }
 
     public void perderVida(double dano) {
 
