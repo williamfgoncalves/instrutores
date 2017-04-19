@@ -231,8 +231,6 @@ public class ListaSaintsTest {
     @Test
     public void ordenarComListaApenasUm() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
-        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
-        Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
         Saint shun = new Saint("Shun", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
         listaSaints.adicionar(shun);
         shun.perderVida(30);
