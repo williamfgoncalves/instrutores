@@ -48,4 +48,22 @@ public class ListaSaints {
             .collect(Collectors.toList());
     }
     
+    public Saint getSaintMaiorVida() {
+        
+        if (saints.isEmpty()) {
+            return null;
+        }
+        
+        Saint maiorVida = this.saints.get(0);
+        for (int i = 1; i < this.saints.size(); i++) {
+            Saint saint = this.saints.get(i);
+            boolean encontreiMaior = saint.getVida() > maiorVida.getVida();
+            if (encontreiMaior) {
+                maiorVida = saint;
+            }
+        }
+        
+        return maiorVida;
+    }
+    
 }
