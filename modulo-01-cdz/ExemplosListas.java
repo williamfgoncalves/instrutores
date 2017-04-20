@@ -1,6 +1,13 @@
 import java.util.ArrayList;
 
 public class ExemplosListas {
+    
+    public void exemploTipos() throws Exception {
+        Saint hyoga = new BronzeSaint("Hyoga", "Cisne");
+        SilverSaint hyogaPrateado = (SilverSaint)hyoga;
+    }
+    
+    
     public void rodar() {
         ArrayList<String> nomes = new ArrayList<>();
         nomes.add("Bernardo");
