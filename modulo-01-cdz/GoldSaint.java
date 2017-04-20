@@ -1,4 +1,9 @@
-public class GoldSaint extends Saint {
+public final class GoldSaint extends Saint {
+    
+    public GoldSaint(String nome, String constelacao) throws Exception {
+        this(nome, new Armadura(new Constelacao(constelacao), Categoria.OURO));
+    }
+    
     public GoldSaint(String nome, Armadura armadura) throws Exception {
         super(nome, armadura);
         this.qtdSentidosDespertados = 7;
@@ -18,5 +23,13 @@ public class GoldSaint extends Saint {
             // dar erro
             throw new Exception("Constelação inválida");
         }
+    }
+    
+    public void moverNaVelocidadeDaLuz() {
+        System.out.println(this.getNome() + " na velocidade da Luz!");
+    }
+    
+    public String getNome() {
+        return super.getNome() + "!!!!";
     }
 }
