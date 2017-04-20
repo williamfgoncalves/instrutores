@@ -117,4 +117,30 @@ public class ListaSaints {
     public void ordenar() {
         this.ordenar(TipoOrdenacao.ASCENDENTE);
     }
+
+    public String getCSV() {
+        if (this.saints.isEmpty()) {
+            return "";
+        }
+
+        String separador = System.getProperty("line.separator");
+        StringBuilder builder = new StringBuilder(512);
+
+        builder.append(this.saints.get(0).getCSV());
+        for (int i = 1; i < this.saints.size(); i++) {
+            Saint saint = this.saints.get(i);
+            //resultado += separador + saint.getCSV();
+            //builder.append(String.format("%s%s", separador, saint.getCSV()));
+            builder.append(separador);
+            builder.append(saint.getCSV());
+        }
+
+        return builder.toString();
+    }
+
+    /*@Override
+    public String toString() {
+    return String.valueOf(this.saints.size());
+    }*/
+
 }
