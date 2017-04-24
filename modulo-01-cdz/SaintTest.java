@@ -236,7 +236,7 @@ public class SaintTest {
         String esperado = "June,84.5,,BRONZE,VIVO,FEMININO,false";
         assertEquals(esperado, june.getCSV());
     }
-    
+
     @Test
     public void getCSVComNomeNulo() throws Exception {
         Saint june = new BronzeSaint(null, "Camaleão");
@@ -244,6 +244,29 @@ public class SaintTest {
         june.perderVida(15.5);
         String esperado = "null,84.5,Camaleão,BRONZE,VIVO,FEMININO,false";
         assertEquals(esperado, june.getCSV());
+    }
+
+    @Test(expected=ArithmeticException.class)
+    public void getProximoMovimentoComListaVazia() throws Exception {
+        Saint hyoga = new BronzeSaint("Hyoga", "Cisne");
+        Movimento movimento = hyoga.getProximoMovimento();
+    }
+
+    @Test
+    public void getProximoMovimentoComUmMovimento() throws Exception {
+        Saint hyoga = new BronzeSaint("Hyoga", "Cisne");
+        Movimento vestirArmadura = new VestirArmadura(hyoga);
+        hyoga.adicionarMovimento(vestirArmadura);
+        assertEquals(vestirArmadura, hyoga.getProximoMovimento());
+    }
+    
+    @Test
+    public void getProximoMovimentoDuasVezesComUmMovimento() throws Exception {
+        Saint hyoga = new BronzeSaint("Hyoga", "Cisne");
+        Movimento vestirArmadura = new VestirArmadura(hyoga);
+        hyoga.adicionarMovimento(vestirArmadura);
+        hyoga.getProximoMovimento();
+        assertEquals(vestirArmadura, hyoga.getProximoMovimento());
     }
 
 }
