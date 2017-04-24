@@ -268,6 +268,16 @@ public class SaintTest {
         hyoga.getProximoMovimento();
         assertEquals(vestirArmadura, hyoga.getProximoMovimento());
     }
+    
+    @Test
+    public void golpearDeveAdicionarMovimentoGolpear() throws Exception {
+        Saint saga = new GoldSaint("Saga", "Gêmeos");
+        saga.aprenderGolpe(new Golpe("Outra dimensão", 10));
+        Saint seiya = new BronzeSaint("Seiya", "Pégaso");
+        saga.golpear(seiya);
+        Golpear golpear = new Golpear(saga, seiya);
+        assertEquals(golpear, saga.getProximoMovimento());
+    }
 
 }
 
