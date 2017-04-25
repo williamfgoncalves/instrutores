@@ -6,12 +6,12 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
 public class SaintTest {
-    
+
     @After
     public void tearDown() {
         System.gc();
     }
-    
+
     @Test
     public void vestirArmaduraDeixaArmaduraVestida() throws Exception {
         // AAA
@@ -306,8 +306,40 @@ public class SaintTest {
         }
         assertEquals(quantidade, Saint.getQtdSaints());
     }
-}
 
+    @Test
+    public void criarUmSaintIncrementaId() throws Exception {
+        int idAntes = Saint.getAcumuladorQtdSaints();
+        assertEquals(idAntes + 1, new BronzeSaint("Shun", "Andrômeda").getId()); 
+    }
+
+    @Test
+    public void criarDoisSaintsIncrementaId() throws Exception {
+        int idAntes = Saint.getAcumuladorQtdSaints();
+        new BronzeSaint("Shun", "Andrômeda");
+        Saint hyoga = new BronzeSaint("Hyoga", "Cisne");
+        assertEquals(idAntes + 2, hyoga.getId()); 
+    }
+
+    @Test
+    public void criarTresSaintsIncrementaId() throws Exception {
+        int idAntes = Saint.getAcumuladorQtdSaints();
+        new BronzeSaint("Shun", "Andrômeda");
+        Saint hyoga = new BronzeSaint("Hyoga", "Cisne");
+        Saint miro = new GoldSaint("Miro", "Escorpião");
+        assertEquals(idAntes + 3, miro.getId()); 
+    }
+
+    @Test
+    public void criarSaintEDepoisLimpaEDeveIncrementarId() throws Exception {
+        int idAntes = Saint.getAcumuladorQtdSaints();
+        Saint hyoga = new BronzeSaint("Hyoga", "Cisne");
+        // limpar hyoga da memória
+        hyoga = null;
+        Saint miro = new GoldSaint("Miro", "Escorpião");
+        assertEquals(idAntes + 2, miro.getId()); 
+    }
+}
 
 
 
