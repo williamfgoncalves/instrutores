@@ -6,6 +6,12 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
 public class SaintTest {
+    
+    @After
+    public void tearDown() {
+        System.gc();
+    }
+    
     @Test
     public void vestirArmaduraDeixaArmaduraVestida() throws Exception {
         // AAA
@@ -259,7 +265,7 @@ public class SaintTest {
         hyoga.adicionarMovimento(vestirArmadura);
         assertEquals(vestirArmadura, hyoga.getProximoMovimento());
     }
-    
+
     @Test
     public void getProximoMovimentoDuasVezesComUmMovimento() throws Exception {
         Saint hyoga = new BronzeSaint("Hyoga", "Cisne");
@@ -268,7 +274,7 @@ public class SaintTest {
         hyoga.getProximoMovimento();
         assertEquals(vestirArmadura, hyoga.getProximoMovimento());
     }
-    
+
     @Test
     public void golpearDeveAdicionarMovimentoGolpear() throws Exception {
         Saint saga = new GoldSaint("Saga", "Gêmeos");
@@ -279,10 +285,28 @@ public class SaintTest {
         assertEquals(golpear, saga.getProximoMovimento());
     }
 
+    @Test
+    public void criarUmSaintQtdSaintsDeveTerUmAMais() throws Exception {
+        Saint shun = new BronzeSaint("Shun", "Andrômeda");
+        assertEquals(1, Saint.getQtdSaints());
+    }
+
+    @Test
+    public void criarDoisSaintQtdSaintsDeveTerDoisAMais() throws Exception {
+        new BronzeSaint("Shun", "Andrômeda");
+        new SilverSaint("Marin", "Águia");
+        assertEquals(2, Saint.getQtdSaints());
+    }
+
+    @Test
+    public void criarDuzentosSaintsQtdSaintsDeveTerDuzentosAMais() throws Exception {
+        final int quantidade = 200;
+        for (int i = 0; i < quantidade; i++) {
+            new BronzeSaint("Bronze " + i, "Constelação " + i);
+        }
+        assertEquals(quantidade, Saint.getQtdSaints());
+    }
 }
-
-
-
 
 
 
