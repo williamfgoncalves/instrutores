@@ -38,6 +38,10 @@ body {
 	padding: 20px 20px;
 }
 
+.noticia-wrapper:nth-child(even) {
+	float: right;
+}
+
 .noticia {
 	padding: 20px 40px;
 	background: #fff;
@@ -83,4 +87,16 @@ body {
 	color: #bbb;
 	font-weight: 100;
 	float: right;
+}
+
+@media screen and (max-width: 800px) {
+	.noticia-wrapper {
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 800px) and (max-width: 900px) {
+	.noticia > .titulo-noticia {
+		color: blue;
+	}
 }
