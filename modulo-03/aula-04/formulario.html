@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<link rel="icon" type="image/png" href="favicon.png" />
+	<title>Formularios</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+	<form>
+		<input type="text" class="form-control" required minlength="5" maxlength="10">
+		<br>
+		<label for="cpf">CPF</label>
+		<input id="cpf" type="text" autofocus placeholder="Ex.: 032.324.532-55">
+		<br>
+		<input type="text" placeholder="Nome" value="Pedro">
+
+
+		<input type="number">
+		<input type="number" step="10">
+		<input type="number" step="10" max="100">
+		<input type="number" step="10" max="10" min="0">
+
+		<input type="email" placeholder="Email">
+		<input type="password" placeholder="********">
+		<input type="date">
+
+		<select required>
+			<option disabled hidden selected value="">Selecione a Comida</option>
+			<option value="1">Pizza</option>
+			<option value="2">Lasanha</option>
+			<option value="3">Bis</option>
+		</select>
+		<br>
+
+		<input id="termos-de-uso" type="checkbox">
+		<label for="termos-de-uso">Aceito os termos de uso</label>
+		<br>
+
+		<input id="sexo-m" type="radio" name="sexo">
+		<label for="sexo-m">Masculino</label>
+		<input id="sexo-f" type="radio" name="sexo">
+		<label for="sexo-f">Feminino</label>
+		<br>
+
+
+		<input type="submit" value="Enviar">
+		<button type="submit">Enviar</button>
+		<input type="reset" value="Limpar">
+	</form>
+</body>
+</html>
