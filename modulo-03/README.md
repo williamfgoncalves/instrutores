@@ -1007,3 +1007,7 @@ Novos atributos "type" dos inputs no HTML5
 * gradientes
 * keyframes
 * media types
+
+```
+Crédito total do material para Fabricio Rissetto
+```
