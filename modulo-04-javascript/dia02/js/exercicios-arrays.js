@@ -14,4 +14,9 @@ function seriesInvalidas(series) {
   return `Séries Inválidas: ${ invalidas.map(s => s.titulo).join(" - ") }`;
 }
 
+// retorna um array com todas as séries com
+// ano de estreia igual ou maior que 2017.
+function filtrarSeriesPorAno(series, ano) {
+  return series.filter(s => s.anoEstreia >= ano)
+}
 //
