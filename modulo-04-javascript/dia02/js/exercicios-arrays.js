@@ -46,4 +46,18 @@ function mascadaEmSerie(serie) {
 function queroGenero(genero) {
   return series.filter(s => s.genero.includes(genero));
 }
+
+function queroTitulo(titulo) {
+  return series
+    .filter(s => s.titulo.includes(titulo))
+    .map(s => s.titulo);
+}
+
+let subset = queroTitulo("The");
+let divSubset = document.getElementById('subset');
+subset.forEach(titulo => {
+  let h2 = document.createElement('h2');
+  h2.innerText = `${ titulo }`;
+  divSubset.append(h2);
+});
 //
