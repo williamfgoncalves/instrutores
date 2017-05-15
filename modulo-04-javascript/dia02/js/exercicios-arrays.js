@@ -60,4 +60,25 @@ subset.forEach(titulo => {
   h2.innerText = `${ titulo }`;
   divSubset.append(h2);
 });
+
+String.prototype.pegarUltimoNome = function(a, b) {
+  let partesNome = this.trim().split(" ");
+  return partesNome[partesNome.length - 1];
+}
+
+// 1. ordenar elenco pelo último nome
+// 2. saber montar os créditos
+function creditosIlluminatis(serie) {
+  let criterioDeOrdenacao = (s1, s2) => {
+    return s1.pegarUltimoNome().localeCompare(s2.pegarUltimoNome())
+  }
+  let elencoOrdenado = serie.elenco.sort(criterioDeOrdenacao);
+  let diretoresOrdenados = serie.diretor.sort(criterioDeOrdenacao);
+
+  console.log(serie.titulo);
+  console.log("Diretores");
+  console.log(diretoresOrdenados);
+  console.log("Elenco");
+  console.log(elencoOrdenado);
+}
 //
