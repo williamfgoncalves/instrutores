@@ -61,11 +61,6 @@ subset.forEach(titulo => {
   divSubset.append(h2);
 });
 
-String.prototype.pegarUltimoNome = function(a, b) {
-  let partesNome = this.trim().split(" ");
-  return partesNome[partesNome.length - 1];
-}
-
 // 1. ordenar elenco pelo último nome
 // 2. saber montar os créditos
 function creditosIlluminatis(serie) {
@@ -80,5 +75,16 @@ function creditosIlluminatis(serie) {
   console.log(diretoresOrdenados);
   console.log("Elenco");
   console.log(elencoOrdenado);
+}
+
+console.log("oi B. tchau".temAbreviacao())
+
+function descobrirSerieComTodosAbreviados() {
+  let elencoSerie = series
+    .find(s => s.elenco.every(e => e.temAbreviacao()))
+    .elenco
+    .map(e => e.match(/ [a-z][.] /gi)[0][1])
+    .join("");
+  return `#${ elencoSerie }`;
 }
 //
