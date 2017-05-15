@@ -42,4 +42,8 @@ function mascadaEmSerie(serie) {
   let custoComElenco = serie.elenco.length * 40000;
   return custoComDiretores + custoComElenco;
 }
+
+function queroGenero(genero) {
+  return series.filter(s => s.genero.includes(genero));
+}
 //
