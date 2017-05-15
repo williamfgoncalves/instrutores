@@ -30,4 +30,9 @@ function mediaDeEpisodios(series) {
     .map(s => s.numeroEpisodios)
     .reduce((acc, numeroEpisodios) => acc + numeroEpisodios) / series.length;
 }
+
+function procurarPorNome(series, nome) {
+  // indexOf
+  return series.some(s => s.elenco.some(e => e.includes(nome)));
+}
 //
