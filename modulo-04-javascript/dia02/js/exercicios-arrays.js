@@ -19,4 +19,15 @@ function seriesInvalidas(series) {
 function filtrarSeriesPorAno(series, ano) {
   return series.filter(s => s.anoEstreia >= ano)
 }
+
+// numeroEpisodios
+// 34.1
+function mediaDeEpisodios(series) {
+  // return series
+  //   .map(function(s) { return s.numeroEpisodios })
+  //   .reduce(function(acc, numeroEpisodios) { return acc + numeroEpisodios }, 0) / series.length;
+  return series
+    .map(s => s.numeroEpisodios)
+    .reduce((acc, numeroEpisodios) => acc + numeroEpisodios) / series.length;
+}
 //
