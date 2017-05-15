@@ -53,13 +53,13 @@ function queroTitulo(titulo) {
     .map(s => s.titulo);
 }
 
-let subset = queroTitulo("The");
+/*let subset = queroTitulo("The");
 let divSubset = document.getElementById('subset');
 subset.forEach(titulo => {
   let h2 = document.createElement('h2');
   h2.innerText = `${ titulo }`;
   divSubset.append(h2);
-});
+});*/
 
 // 1. ordenar elenco pelo último nome
 // 2. saber montar os créditos
