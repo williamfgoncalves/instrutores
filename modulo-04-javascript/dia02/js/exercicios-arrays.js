@@ -35,4 +35,11 @@ function procurarPorNome(series, nome) {
   // indexOf
   return series.some(s => s.elenco.some(e => e.includes(nome)));
 }
+
+//Retorna o valor total de gastos contando os diretores e o elenco
+function mascadaEmSerie(serie) {
+  let custoComDiretores = serie.diretor.length * 100000;
+  let custoComElenco = serie.elenco.length * 40000;
+  return custoComDiretores + custoComElenco;
+}
 //
