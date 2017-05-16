@@ -25,4 +25,15 @@ describe('arredondar()', function() {
     // Assert
     expect(resultado).toBe(5.052);
   });
+
+  it('deve arredondar 3 com 0 casas para 3.14', function() {
+    // Arrange
+    let entrada = 3.14;
+    // Act
+    let resultado = entrada.arredondar(0);
+    // Assert
+    expect(resultado).toBe(3);
+  });
+
+
 });
