@@ -2,18 +2,13 @@ var modulo = angular.module('aula02', []);
 
 modulo.controller('Exemplo03', function ($scope, $filter) {
 
-  $scope.converter = converter;
-
-  function converter() {
+  $scope.converter = function converter() {
 
     if (angular.isUndefined($scope.dataDigitada)) {
       return;
     }
 
-    let pattern = '/(\d{2})\/(\d{2})\/(\d{4})/';
-    let replace = '$1.$2.$3';
-    let dataFormatada = $scope.dataDigitada.replace(pattern, replace);
-    console.log(dataFormatada);
+    let dataFormatada = $scope.dataDigitada.replace(/(\d{2})\/(\d{2})\/(\d{4})/, '$2.$1.$3');
 
     let dataObjeto = new Date(dataFormatada);
     

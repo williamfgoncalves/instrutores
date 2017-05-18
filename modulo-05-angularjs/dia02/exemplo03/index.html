@@ -10,15 +10,13 @@
   <div ng-controller="Exemplo03">
 
     <label for="dataDigitada">Data Digitada</label>
-    <input type="text" ng-model="dataDigitada" placeholder="dd/mm/aaaa"/>
+    <input type="text" ng-model="dataDigitada" placeholder="Ex: 30/12/2017"/>
     
     <button ng-click="converter()">Converter!</button>
     
-    <span>{{ dataObjeto | date: 'mediumDate' }}</span>
+    <p>{{ dataObjeto | date: 'mediumDate' }}</p>
 
-    <br />
-
-    <span>{{ dataPronta }}</span>
+    <p>{{ dataPronta }}</p>
 
   </div>
 
