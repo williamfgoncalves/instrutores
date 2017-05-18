@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="aula02">
+
+<head>
+  <title>Correção Tema</title>
+</head>
+
+<body>
+
+  <div ng-controller="Tema01">
+
+    <h2>Filtrar Lista</h2>
+    <label for="nome">Filtro por Nome</label>
+    <input type="text" name="nome" ng-model="filtro.nome" />
+
+    <ul>
+      <li ng-repeat="pokemon in pokemons | filter: filtro">
+        Nome: {{ pokemon.nome }} $$ Tipo: {{ pokemon.tipo | uppercase}}
+      </li>
+    </ul>
+
+    <h2>Filter Currency</h2>
+    <label for="valor">Exemplo de valor</label>
+    <input type="text" name="valor" ng-model="valor" />
+    <p>{{ valor | currency }}</span>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="pt-br.js"></script>
+  <script src="controller.js"></script>
+</body>
+
+</html>
