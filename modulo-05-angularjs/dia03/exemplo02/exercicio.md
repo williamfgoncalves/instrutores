@@ -25,10 +25,10 @@ let instrutores = [
 ];
 
 let aulas = [
-  'OO'
-  'HTML e CSS'
-  'Javascript'
-  'AngularJS'
+  'OO',
+  'HTML e CSS',
+  'Javascript',
+  'AngularJS',
   'Banco de Dados I'
 ];
 ```
