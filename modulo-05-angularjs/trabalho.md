@@ -3,7 +3,7 @@ Crescer 2017-1 | Módulo 04 - AngularJS
 # AngularJS - Trabalho - Final de Semana (CRUD)
 
 **Avisos**
-- Limite de Entrega (commit) **19/05/2017 13:29**  
+- Limite de Entrega (commit) **22/05/2017 13:29**  
 - Criar um diretório chamado `crud` com a solução.
 
 ## CRUD Aulas
