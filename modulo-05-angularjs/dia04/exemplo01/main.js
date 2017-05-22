@@ -11,12 +11,13 @@ app.config(function ($routeProvider) {
       controller: 'Pagina02Controller',
       templateUrl: 'pagina02.html'
     })
-    .otherwise({redirectTo: '/pagina01'});
-});
-
-app.controller('PrincipalController', function ($scope) {
-  $scope.controller = 'PrincipalController';
-  $scope.aulas = ['OO'];
+    .when('/pagina03/:idUrl', {
+      controller: 'AulaController',
+      templateUrl: 'pagina03.html'
+    })
+    .otherwise({
+      redirectTo: '/pagina01'
+    });
 });
 
 app.controller('Pagina01Controller', function ($scope) {
@@ -25,4 +26,24 @@ app.controller('Pagina01Controller', function ($scope) {
 
 app.controller('Pagina02Controller', function ($scope) {
   $scope.controller = 'Pagina02Controller';
+});
+
+app.controller('AulaController', function ($scope, $routeParams, aulaService) {
+  
+  $scope.id = $routeParams.idUrl;
+  
+  // listar aulas
+  $scope.aulas = aulaService.list();
+
+  // atualizar
+  $scope.atualizar = aulaService.update;
+
+  // incluir
+  $scope.criar = aulaService.create;
+  
+  buscarAulaPorId($scope.id)
+
+  function buscarAulaPorId(id) {
+    $scope.aula = angular.copy(aulaService.findById(id));
+  }
 });
