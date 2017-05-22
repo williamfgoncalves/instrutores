@@ -1,4 +1,10 @@
-app.factory('aulaService', function () {
+app.factory('instrutoresService', function () {
+  return {};
+});
+
+app.factory('aulaService', function ($location) {
+
+  console.log($location);
 
   let idAtual = 1;
 
