@@ -1,28 +1,17 @@
-app.factory('instrutoresService', function () {
-  return {};
-});
+app.factory('aulaService', function ($http) {
 
-app.factory('aulaService', function ($location) {
+  let urlBase = 'http://localhost:3000';
 
-  console.log($location);
-
-  let idAtual = 1;
-
-  let aulas = [
-    { id: 0, nome: 'OO' },
-    { id: 1, nome: 'HTML e CSS' }
-  ];
-
-  function getTodasAsAulas(params) {
-    return aulas;
+  function getTodasAsAulas() {
+    return $http.get(urlBase + '/aula');
   };
 
   function getAulaPorId(id) {
-    return aulas.find((aula) => aula.id == id)
+    return $http.get(urlBase + '/aula' + '/' + id);
   };
 
   function atualizar(aula) {
-    aulas.splice(aula.id, 1, aula);
+    return $http.put(urlBase + '/aula' + '/' + aula.id, aula);
   };
 
   function criar(aula) {
