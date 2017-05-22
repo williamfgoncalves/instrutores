@@ -13,13 +13,13 @@ _zanatta.everton@cwi.com.br_
 ## Guia
 1. [Instalar `NodeJS`](https://nodejs.org).
 2. [Instalar `http-server`](https://www.npmjs.com/package/http-server).
-3. Em um novo `terminal`, entrar no diretório do exercício e executar `http-server` e acessar <http://localhost:8080>.
+3. Em um novo `terminal`, entrar no diretório do exercício, executar `http-server` e acessar <http://localhost:8080>.
 4. Adicionar rota para `/aulas`. Não esquecer de carreagr o `script` do *ngRoute*, colocar o módulo como dependência e da diretiva `ng-view` ([+informações](https://docs.angularjs.org/api/ngRoute)).
 5. Criar `service` (factory) para `aulas`, para encapsular a lógica das operações de CRUD.
 6. [Instalar `json-server`](https://github.com/typicode/json-server#install).
 7. No diretório do exercício adicionar o arquivo [`db.json`](https://github.com/cwi-crescer-2017-1/instrutores/blob/master/modulo-05-angularjs/dia04/exemplo01/db.json)
-6. Em um novo `terminal`, entrar no diretório do exercício e executar `json-server --watch db.json` e acessar: <http://localhost:3000/aula> e <http://localhost:3000/instrutor>.
-7. Na `service` passar a consumir a nova `[api](http://localhost:3000/aula)` para as operações. Observar `[contrato](https://github.com/cwi-crescer-2017-1/instrutores/blob/master/modulo-05-angularjs/dia04/exemplo01/contrato.md)`.  
+6. Em um novo `terminal`, entrar no diretório do exercício, executar `json-server --watch db.json` e acessar: <http://localhost:3000/aula>.
+7. Na `service` passar a consumir a nova [`api`](http://localhost:3000/aula). Observar [`contrato`](https://github.com/cwi-crescer-2017-1/instrutores/blob/master/modulo-05-angularjs/dia04/exemplo01/contrato.md)`.  
 
 ## Referências
 #### Servidor vs Cliente
