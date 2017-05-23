@@ -1,0 +1,36 @@
+<h3>Aula</h3>
+
+
+<form novalidate name="formAula" ng-submit="salvar(aulaNova)">
+  
+  <legend>Edição Aula</legend>
+
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input ng-model="aulaNova.nome" required type="text" class="form-control" placeholder="Nome">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+<pre>aulaNova: {{ aulaNova }}</pre>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="aula in aulas">
+      <th scope="row">{{aula.id}}</th>
+      <td>{{aula.nome}}</td>
+      <td><a ng-href="#!/aula/visualizar/{{aula.id}}">Visualizar</a></td>
+      <td><button ng-click="visualizar(aula)">Visualizar</button></td>
+      <td><button ng-click="editar(aula)">Editar</button></td>
+      <td><button ng-click="excluir(aula)">Excluir</button></td>
+    </tr>
+  </tbody>
+</table>
