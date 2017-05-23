@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('AulaController', function ($scope, aulaService, $location) {
+  .controller('AulaController', function ($scope, aulaService, $location, toastr) {
 
     $scope.editar = editar;
     $scope.salvar = salvar;
@@ -34,6 +34,7 @@ angular.module('app')
 
       promise.then(function (response) {
         carregarAulas();
+        toastr.success('Sucesso!', '', { closeButton: true })
       });
 
       $scope.aulaNova = {};      
