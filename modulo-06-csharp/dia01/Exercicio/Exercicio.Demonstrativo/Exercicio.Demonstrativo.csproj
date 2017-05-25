@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Entidades\Demonstrativo.cs" />
     <Compile Include="Entidades\Desconto.cs" />
+    <Compile Include="Entidades\FaixaImposto.cs" />
     <Compile Include="Entidades\FolhaPagamento.cs" />
     <Compile Include="Entidades\HorasCalculadas.cs" />
     <Compile Include="Entidades\IFolhaPagamento.cs" />
