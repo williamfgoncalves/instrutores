@@ -20,5 +20,23 @@ namespace Repositorio
             this.Nome = nome;
             this.DataNascimento = dataNascimento;
         }
+
+        public int Idade
+        {
+            get
+            {
+                //Calula a idade subtraindo o ano atual pela data de nascimento
+                int anos = DateTime.Now.Year - DataNascimento.Year;
+
+                //Porém caso ele ainda não tenha feito aniversário nesse ano, o ano não conta
+                bool mesDeAniversarioEhMenorQueOMesAtual = DateTime.Now.Month < DataNascimento.Month;
+                bool mesDeAniversarioEhIgualMasDiaEhMenor = DateTime.Now.Month == DataNascimento.Month && DateTime.Now.Day < DataNascimento.Day;
+
+                if (mesDeAniversarioEhMenorQueOMesAtual || mesDeAniversarioEhIgualMasDiaEhMenor)
+                    anos--;
+
+                return anos;
+            }
+        }
     }
 }
