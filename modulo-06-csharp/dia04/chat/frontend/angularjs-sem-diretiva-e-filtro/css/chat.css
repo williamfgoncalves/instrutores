@@ -1,0 +1,94 @@
+@import url("http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+.chat
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat li
+{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #B3A9A9;
+}
+
+.chat li.left .chat-body
+{
+    margin-left: 60px;
+}
+
+.chat li.right .chat-body
+{
+    margin-right: 60px;
+}
+
+.chat li .chat-body p
+{
+    margin: 0;
+    color: #777777;
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon
+{
+    margin-right: 5px;
+}
+
+.body-panel
+{
+    overflow-y: scroll;
+    height: 320px;
+}
+
+.title {
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    text-shadow: rgb(201, 195, 195) 3px 2px 5px;
+    margin-bottom: 35px;
+}
+
+body {
+    background-image: url(../images/background.jpg);
+}
+
+.panel {
+    background-color: rgba(255,255,255,0.9);
+}
+
+.panel-primary>.panel-heading {
+    background-color: rgba(77, 202, 66, 0.4);
+    border-color: silver;
+}
+
+.panel-primary {
+    border-color: silver;
+}
+
+.chat-body.clearfix {
+    text-align: left;
+}
+
+.img-circle {
+    width: 50px;
+}
+
+.input-digitacao {
+    width: 100%;
+}
+
+.input-digitacao textarea {
+    resize: none;
+    width: 85%!important;
+    display: inline-block;
+}
+
+.input-digitacao .btn {
+    border-left: 0;
+    height: 74px;
+    display: inline-block;
+    width: 15%;
+    background-color: #ed9c28;
+    color: white;
+    border: 1px solid #d58512;
+    width: 15%;
+}
