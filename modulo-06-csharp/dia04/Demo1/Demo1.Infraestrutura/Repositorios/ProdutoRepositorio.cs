@@ -8,27 +8,12 @@ using System.Threading.Tasks;
 
 namespace Demo1.Infraestrutura.Repositorios
 {
-    public class ProdutoRepositorio
+    public class ProdutoRepositorio : RepositorioBase
     {
-        /*
-         * https://www.connectionstrings.com/sqlconnection/
-        * Server=myServerAddress;
-        * Database=myDataBase;
-        * User Id = myUsername;
-        * Password=myPassword;
-        */
-        string stringConexao =
-                        @"Server=13.65.101.67;
-                        User Id=giovani;
-                        Password=123456;
-                        Database=aluno26db";
-
         public void Criar(Produto produto)
         {
-            using (var conexao = new SqlConnection(stringConexao))
-            {
-                conexao.Open();
-
+            using (var conexao = CriarConexao())
+            {               
                 // Executa o INSERT
                 using (var comando = conexao.CreateCommand())
                 {
@@ -61,26 +46,26 @@ namespace Demo1.Infraestrutura.Repositorios
         {
             var produtos = new List<Produto>();
 
-            using (var conexao = new SqlConnection(stringConexao))
+            using (var conexao = CriarConexao())
             {
-                conexao.Open();
-
                 using (var comando = conexao.CreateCommand())
                 {
                     comando.CommandText =
                         "SELECT Id, Nome, Preco, Estoque FROM Produto";
 
-                    var dataReader = comando.ExecuteReader();
-                    while (dataReader.Read())
+                    using (var dataReader = comando.ExecuteReader())
                     {
-                        var produto = new Produto();
+                        while (dataReader.Read())
+                        {
+                            var produto = new Produto();
 
-                        produto.Id = (int)dataReader["Id"];
-                        produto.Nome = (string)dataReader["Nome"];
-                        produto.Preco = (decimal)dataReader["Preco"];
-                        produto.Estoque = (int)dataReader["Estoque"];
+                            produto.Id = (int)dataReader["Id"];
+                            produto.Nome = (string)dataReader["Nome"];
+                            produto.Preco = (decimal)dataReader["Preco"];
+                            produto.Estoque = (int)dataReader["Estoque"];
 
-                        produtos.Add(produto);
+                            produtos.Add(produto);
+                        }
                     }
                 }
             }
@@ -90,10 +75,8 @@ namespace Demo1.Infraestrutura.Repositorios
 
         public void Alterar(Produto produto)
         {
-            using (var conexao = new SqlConnection(stringConexao))
+            using (var conexao = CriarConexao())
             {
-                conexao.Open();
-
                 // Executa o INSERT
                 using (var comando = conexao.CreateCommand())
                 {
@@ -114,10 +97,8 @@ namespace Demo1.Infraestrutura.Repositorios
 
         public void Excluir(int id)
         {
-            using (var conexao = new SqlConnection(stringConexao))
+            using (var conexao = CriarConexao())
             {
-                conexao.Open();
-
                 // Executa o INSERT
                 using (var comando = conexao.CreateCommand())
                 {
@@ -136,10 +117,8 @@ namespace Demo1.Infraestrutura.Repositorios
         {
             Produto produto = null;
 
-            using (var conexao = new SqlConnection(stringConexao))
+            using (var conexao = CriarConexao())
             {
-                conexao.Open();
-
                 using (var comando = conexao.CreateCommand())
                 {
                     comando.CommandText =
@@ -147,15 +126,17 @@ namespace Demo1.Infraestrutura.Repositorios
 
                     comando.Parameters.AddWithValue("@id", id);
 
-                    var dataReader = comando.ExecuteReader();
-                    while (dataReader.Read())
+                    using (var dataReader = comando.ExecuteReader())
                     {
-                        produto = new Produto();
-                        produto.Id = (int)dataReader["Id"];
-                        produto.Nome = (string)dataReader["Nome"];
-                        produto.Preco = (decimal)dataReader["Preco"];
-                        produto.Estoque = (int)dataReader["Estoque"];
-                        return produto;
+                        while (dataReader.Read())
+                        {
+                            produto = new Produto();
+                            produto.Id = (int)dataReader["Id"];
+                            produto.Nome = (string)dataReader["Nome"];
+                            produto.Preco = (decimal)dataReader["Preco"];
+                            produto.Estoque = (int)dataReader["Estoque"];
+                            return produto;
+                        }
                     }
                 }
             }
