@@ -11,4 +11,10 @@ namespace ExemploWebApi.Models
         public string Nome { get; set; }
         public Poder Poder { get; set; }
     }
+
+    public class Mensagem
+    {
+        public string Texto { get; set; }
+        public Usuario Usuario { get; set; }
+    }
 }
