@@ -21,9 +21,10 @@ namespace AutDemo.Dominio.Entidades
             Nome = nome;
             Email = email;
             Id = Guid.NewGuid();
-            Senha = CriptografarSenha(senha);
+            if (!string.IsNullOrWhiteSpace(senha))
+                Senha = CriptografarSenha(senha);
             Permissoes = new List<Permissao>();
-            AtribuirPermissoes("Colaboradores");
+            AtribuirPermissoes("Colaborador");
         }
 
         public string ResetarSenha()
@@ -66,11 +67,11 @@ namespace AutDemo.Dominio.Entidades
         {
             Mensagens.Clear();
 
-            if (string.IsNullOrWhiteSpace(Email))
-                Mensagens.Add("Email é inválido.");
-
             if (string.IsNullOrWhiteSpace(Nome))
                 Mensagens.Add("Nome é inválido.");
+
+            if (string.IsNullOrWhiteSpace(Email))
+                Mensagens.Add("Email é inválido.");
 
             if (string.IsNullOrWhiteSpace(Senha))
                 Mensagens.Add("Senha é inválido.");

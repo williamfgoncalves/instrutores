@@ -15,6 +15,11 @@ namespace AutDemo.WebApi.Controllers
         [HttpGet]
         public HttpResponseMessage Get(string nome)
         {
+            if (nome == "nunes")
+            {
+                throw new Exception("Não é possível usar o nome nunes. Tenha cuidado da próxima vez.");
+            }
+            
             return ResponderOK($"Acesso anônimo permitido. Usuário logado é {Thread.CurrentPrincipal.Identity.Name}");
         }
 
@@ -24,7 +29,7 @@ namespace AutDemo.WebApi.Controllers
             return ResponderOK($"Qualquer usuário autenticado pode acessar. Usuário logado é {Thread.CurrentPrincipal.Identity.Name}");
         }
 
-        [HttpGet, BasicAuthorization(Roles = "Administradores,Colaboradores")]
+        [HttpGet, BasicAuthorization(Roles = "Administrador,Colaborador")]
         public HttpResponseMessage Get()
         {
             return ResponderOK($"Somente usuários do grupo Administradores podem acessar. Usuário logado é {Thread.CurrentPrincipal.Identity.Name}");
