@@ -23,6 +23,14 @@ namespace EditoraCrescer.Api.Controllers
             return Ok(new { dados = retornoPaginado });
         }
 
+        [HttpGet]
+        [Route("quantidadetotal")]
+        public IHttpActionResult ObterQuantidadeLivrosPublicadosExcetoLancamentos()
+        {
+            var quantidade = repositorio.ObterQuantidadeLivrosPublicadosExcetoLancamentos();
+            return Ok(new { dados = quantidade });
+        }
+
         // GET: api/Livros
         [HttpGet]
         [Route("lancamentos")]

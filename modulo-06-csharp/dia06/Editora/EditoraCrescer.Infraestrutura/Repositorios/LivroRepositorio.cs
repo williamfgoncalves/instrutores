@@ -32,6 +32,16 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
                            .ToList();
         }
 
+        public int ObterQuantidadeLivrosPublicadosExcetoLancamentos()
+        {
+            //Seria interessante colocar a variável "livrosPublicados" (do método abaixo) num atributo privado e utilizar esse atributo
+            //Entretanto repliquei o código para manter o commit simples de ser entendido. 
+            return contexto.Livros
+                    .Where(x => x.DataPublicacao != null &&
+                        DbFunctions.TruncateTime(x.DataPublicacao.Value) < seteDiasAtras)
+                    .Count();
+        }
+
         public dynamic ObterLivrosPublicadosExcetoLancamentos(int quantidadePular, int quantidadeTrazer)
         {
             var livrosPublicados = contexto.Livros
