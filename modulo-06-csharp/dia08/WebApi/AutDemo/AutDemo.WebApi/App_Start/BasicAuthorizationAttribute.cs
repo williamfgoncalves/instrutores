@@ -84,7 +84,8 @@ namespace AutDemo.WebApi
                 }
             }
 
-            actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
+            actionContext.Response =
+                actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized, new { mensagens = new string[] { "Usuário ou senha inválidos." } });
         }
 
         private bool ValidarUsuario(string login, string senha, out Usuario usuarioRetorno)
