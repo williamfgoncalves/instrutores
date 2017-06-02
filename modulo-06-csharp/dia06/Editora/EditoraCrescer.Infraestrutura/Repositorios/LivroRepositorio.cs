@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,30 +11,58 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
 {
     public class LivroRepositorio : IDisposable
     {
-        private Contexto contexto;
-        public LivroRepositorio()
+        private Contexto contexto = new Contexto();
+        private Expression<Func<Livro, dynamic>> camposBasicos =
+                (x => new
+                {
+                    Isbn = x.Isbn,
+                    Titulo = x.Titulo,
+                    NomeAutor = x.Autor.Nome,
+                    Genero = x.Genero
+                });
+        private DateTime seteDiasAtras = DateTime.Now.Date.Subtract(new TimeSpan(7, 0, 0, 0, 0));
+
+        public object ObterLivrosLancamentos()
         {
-            contexto = new Contexto();
+            return contexto.Livros
+                           .Where(x => x.DataPublicacao != null &&
+                                DbFunctions.TruncateTime(x.DataPublicacao.Value) >= seteDiasAtras)
+                           .OrderByDescending(x => x.DataPublicacao)
+                           .Select(camposBasicos)
+                           .ToList();
         }
 
-        public object ObterTodos()
+        public dynamic ObterLivrosPublicadosExcetoLancamentos(int quantidadePular, int quantidadeTrazer)
         {
+            var livrosPublicados = contexto.Livros
+                            .Where(x => x.DataPublicacao != null &&
+                                DbFunctions.TruncateTime(x.DataPublicacao.Value) < seteDiasAtras);
+
+            var livrosPaginados = livrosPublicados
+                    .OrderByDescending(x => x.DataPublicacao) //precisa pro skip!
+                    .Skip(quantidadePular)
+                    .Take(quantidadeTrazer)
+                    .Select(x => new
+                    {
+                        Isbn = x.Isbn,
+                        Titulo = x.Titulo,
+                        NomeAutor = x.Autor.Nome,
+                        Genero = x.Genero
+                    });
+
+            //Essas variáveis acima contém queries que ainda não foram submetidas ao banco
+            return new
+            {
+                livros = livrosPaginados.ToList(), //Uma query submetida aqui
+                quantidadeTotal = livrosPublicados.Count() //Outra aqui
+            };
+
             //Exemplo de como incluir dependencias
 
             //return contexto.Livros
             //                .Include(x => x.Autor)
             //                .Include(x => x.Revisor)
             //                .ToList();
-
-            return contexto.Livros
-                           .Select(x => new
-                           {
-                               Isbn = x.Isbn,
-                               Titulo = x.Titulo,
-                               NomeAutor = x.Autor.Nome,
-                               Genero = x.Genero
-                           })
-                           .ToList();
         }
 
         public Livro ObterPorIsbn(int isbn)
