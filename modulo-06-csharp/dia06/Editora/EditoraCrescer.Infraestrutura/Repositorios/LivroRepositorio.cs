@@ -50,7 +50,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
                         Genero = x.Genero
                     });
 
-            //Essas variáveis acima contém queries que ainda não foram submetidas ao banco
+            //As variáveis acima contém queries que ainda não foram submetidas ao banco
             return new
             {
                 livros = livrosPaginados.ToList(), //Uma query submetida aqui

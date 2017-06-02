@@ -10,16 +10,25 @@ using System.Web.Http;
 
 namespace EditoraCrescer.Api.Controllers
 {
-    [RoutePrefix("api/Livros")]
+    [RoutePrefix("api/livros")]
     public class LivrosController : ApiController
     {
         private readonly LivroRepositorio repositorio = new LivroRepositorio();
 
+        // GET: api/livros
+        [HttpGet]
+        public IHttpActionResult ObterLivrosPublicadosExcetoLancamentos(int quantidadePular, int quantidadeTrazer)
+        {
+            var retornoPaginado = repositorio.ObterLivrosPublicadosExcetoLancamentos(quantidadePular, quantidadeTrazer);
+            return Ok(new { dados = retornoPaginado });
+        }
+
         // GET: api/Livros
         [HttpGet]
-        public IHttpActionResult ObterLivros()
+        [Route("lancamentos")]
+        public IHttpActionResult ObterLivrosLancamentos()
         {
-            var livros = repositorio.ObterTodos();
+            var livros = repositorio.ObterLivrosLancamentos();
             return Ok(new { dados = livros });
         }
 
@@ -35,14 +44,6 @@ namespace EditoraCrescer.Api.Controllers
         [HttpGet]
         [Route("{genero}")]
         public IHttpActionResult ObterLivroPorGenero(string genero)
-        {
-            var livro = repositorio.ObterPorGenero(genero);
-            return Ok(new { dados = livro });
-        }
-
-        [HttpGet]
-        [Route("{autor}")]
-        public IHttpActionResult ObterLivroPorAutor(string genero)
         {
             var livro = repositorio.ObterPorGenero(genero);
             return Ok(new { dados = livro });
