@@ -80,6 +80,10 @@
     <Compile Include="Migrations\201706011822325_AlteracaoDataPublicacaoNulo.Designer.cs">
       <DependentUpon>201706011822325_AlteracaoDataPublicacaoNulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706022134087_AlterandoRevisorEDataRevisaoParaNulo.cs" />
+    <Compile Include="Migrations\201706022134087_AlterandoRevisorEDataRevisaoParaNulo.Designer.cs">
+      <DependentUpon>201706022134087_AlterandoRevisorEDataRevisaoParaNulo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\LivroRepositorio.cs" />
@@ -106,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706011822325_AlteracaoDataPublicacaoNulo.resx">
       <DependentUpon>201706011822325_AlteracaoDataPublicacaoNulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706022134087_AlterandoRevisorEDataRevisaoParaNulo.resx">
+      <DependentUpon>201706022134087_AlterandoRevisorEDataRevisaoParaNulo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
