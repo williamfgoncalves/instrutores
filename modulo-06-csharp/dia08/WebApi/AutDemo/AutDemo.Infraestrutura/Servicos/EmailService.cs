@@ -5,8 +5,8 @@ namespace AutDemo.Infraestrutura.Servicos
     public static class EmailService
     {
         static string _smtpServer = "smtp.sendgrid.net";
-        static string _smtpUserLoginName = "crescer2017";
-        static string _smtpUserPassword = "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";
+        static string _smtpUserLoginName = "";
+        static string _smtpUserPassword = "";
 
         public static void Enviar(string emailPara, string assunto, string corpo)
         {
