@@ -16,6 +16,11 @@ namespace AutDemo.Dominio.Entidades
         public string Senha { get; private set; }
         public List<Permissao> Permissoes { get; private set; }
 
+        // Construtor padrão para o Entity Framework
+        protected Usuario()
+        {
+        }
+
         public Usuario(string nome, string email, string senha)
         {
             Nome = nome;

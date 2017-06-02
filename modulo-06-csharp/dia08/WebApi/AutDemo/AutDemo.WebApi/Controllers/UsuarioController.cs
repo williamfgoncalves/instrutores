@@ -8,6 +8,7 @@ using System.Web.Http;
 
 namespace AutDemo.WebApi.Controllers
 {
+    // Permite usuário não autenticados acessarem a controller
     [AllowAnonymous]
     [RoutePrefix("api/acessos")]
     public class UsuarioController : ControllerBasica
@@ -29,7 +30,6 @@ namespace AutDemo.WebApi.Controllers
                 if (usuario.Validar())
                 {
                     _usuarioRepositorio.Criar(usuario);
-                    EmailService.Enviar(usuario.Email, "Bem Vindo - Crescer 2017-1", $"Olá! Usuário {usuario.Nome}");
                 }
                 else
                 {
@@ -56,7 +56,7 @@ namespace AutDemo.WebApi.Controllers
             if (usuario.Validar())
             {
                 _usuarioRepositorio.Alterar(usuario);
-                EmailService.Enviar(usuario.Email, "Crescer 2017-1", $"Olá! sua senha foi alterada para: {novaSenha}");
+                // EmailService.Enviar(usuario.Email, "Crescer 2017-1", $"Olá! sua senha foi alterada para: {novaSenha}");
             }
             else
                 return ResponderErro(usuario.Mensagens);
@@ -64,12 +64,18 @@ namespace AutDemo.WebApi.Controllers
             return ResponderOK();
         }
 
+        // Exige que o usuário se autentique
         [BasicAuthorization]
         [HttpGet, Route("usuario")]
         public HttpResponseMessage Obter()
         {
-            // só pode obter as informações do usuário corrente
-            return ResponderOK(_usuarioRepositorio.Obter(Thread.CurrentPrincipal.Identity.Name));
+            // só pode obter as informações do usuário corrente (logado, autenticado)
+            var usuario = _usuarioRepositorio.Obter(Thread.CurrentPrincipal.Identity.Name);
+
+            if (usuario == null)
+                return ResponderErro("Usuário não encontrado.");
+
+            return ResponderOK(new { usuario.Nome, usuario.Permissoes, usuario.Email });
         }
     }
 }

@@ -14,9 +14,9 @@ namespace AutDemo.WebApi.Controllers
     public class ControllerBasica : ApiController
     {
 
-        public HttpResponseMessage ResponderOK(object resultado = null)
+        public HttpResponseMessage ResponderOK(object dados = null)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, new { resultado });
+            return Request.CreateResponse(HttpStatusCode.OK, new { dados });
         }
 
         public HttpResponseMessage ResponderErro(params string[] mensagens)
