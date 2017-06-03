@@ -1,13 +1,12 @@
 ## Exemplo de aplicação utilizando o módulo `auth`
 
 ### Executar API (NodeJS):  
-Em um outro terminal digitar:
+Em um terminal digitar:
 ```bash
 npm i
 ```
 depois
 ```bash
-npm i
 node api.js
 ```
 (API vai ser executada na http://localhost:3000/api/acessos/usuario)
