@@ -1,10 +1,5 @@
-﻿using EditoraCrescer.Infraestrutura.Entidades;
-using System;
-using System.Collections.Generic;
+﻿using EditoraCrescer.Dominio;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EditoraCrescer.Infraestrutura.Mappings
 {
@@ -18,11 +13,13 @@ namespace EditoraCrescer.Infraestrutura.Mappings
 
             HasRequired(x => x.Autor)
                 .WithMany()
-                .HasForeignKey(x => x.IdAutor);
+                //.HasForeignKey(x => x.IdAutor)
+                .Map(x => x.MapKey("IdAutor"));
 
             HasOptional(x => x.Revisor)
                 .WithMany()
-                .HasForeignKey(x => x.IdRevisor);
+                //.HasForeignKey(x => x.IdRevisor)
+                .Map(x => x.MapKey("IdRevisor"));
         }
     }
 }

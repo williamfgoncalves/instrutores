@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditoraCrescer.Infraestrutu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditoraCrescer.Api", "EditoraCrescer.Api\EditoraCrescer.Api.csproj", "{C5120570-B0B6-4527-B2D0-B3CED72ECC2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditoraCrescer.Dominio", "EditoraCrescer.Dominio\EditoraCrescer.Dominio.csproj", "{AE6521EE-BD37-4FD2-9D05-5942B09785BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditoraCrescer.Testes", "EditoraCrescer.Testes\EditoraCrescer.Testes.csproj", "{C40F9AC2-6F25-4E1A-B070-4066A4B97DDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{C5120570-B0B6-4527-B2D0-B3CED72ECC2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5120570-B0B6-4527-B2D0-B3CED72ECC2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5120570-B0B6-4527-B2D0-B3CED72ECC2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE6521EE-BD37-4FD2-9D05-5942B09785BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE6521EE-BD37-4FD2-9D05-5942B09785BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE6521EE-BD37-4FD2-9D05-5942B09785BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE6521EE-BD37-4FD2-9D05-5942B09785BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C40F9AC2-6F25-4E1A-B070-4066A4B97DDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C40F9AC2-6F25-4E1A-B070-4066A4B97DDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C40F9AC2-6F25-4E1A-B070-4066A4B97DDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C40F9AC2-6F25-4E1A-B070-4066A4B97DDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

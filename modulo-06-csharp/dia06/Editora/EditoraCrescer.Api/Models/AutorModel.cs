@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace EditoraCrescer.Infraestrutura.Entidades
+namespace EditoraCrescer.Api.Models
 {
-    public class Revisor
+    public class AutorModel
     {
         public int Id { get; set; }
         public string Nome { get; set; }

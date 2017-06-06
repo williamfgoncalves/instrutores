@@ -50,9 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexto.cs" />
-    <Compile Include="Entidades\Autor.cs" />
-    <Compile Include="Entidades\Livro.cs" />
-    <Compile Include="Entidades\Revisor.cs" />
     <Compile Include="Mappings\RevisorMap.cs" />
     <Compile Include="Mappings\AutorMap.cs" />
     <Compile Include="Mappings\LivroMap.cs" />
@@ -85,6 +82,7 @@
       <DependentUpon>201706022134087_AlterandoRevisorEDataRevisaoParaNulo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="NotificacaoAssinantes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\LivroRepositorio.cs" />
   </ItemGroup>
@@ -114,6 +112,12 @@
     <EmbeddedResource Include="Migrations\201706022134087_AlterandoRevisorEDataRevisaoParaNulo.resx">
       <DependentUpon>201706022134087_AlterandoRevisorEDataRevisaoParaNulo.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EditoraCrescer.Dominio\EditoraCrescer.Dominio.csproj">
+      <Project>{AE6521EE-BD37-4FD2-9D05-5942B09785BD}</Project>
+      <Name>EditoraCrescer.Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

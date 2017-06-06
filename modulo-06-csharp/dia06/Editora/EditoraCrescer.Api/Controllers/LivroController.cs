@@ -1,9 +1,7 @@
-﻿using EditoraCrescer.Infraestrutura;
-using EditoraCrescer.Infraestrutura.Entidades;
+﻿using EditoraCrescer.Api.Models;
+using EditoraCrescer.Dominio;
+using EditoraCrescer.Infraestrutura;
 using EditoraCrescer.Infraestrutura.Repositorios;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -77,9 +75,38 @@ namespace EditoraCrescer.Api.Controllers
 
         // POST: api/Livros
         [HttpPost]
-        public IHttpActionResult IncluirLivro(Livro livro)
+        public IHttpActionResult IncluirLivro(LivroModel model)
         {
+            //var autor = repositorioAutor.ObterAutorPorId();
+            var autor = new Autor("blabla");
+
+            var livro = new Livro(model.Isbn, model.Titulo, model.Descricao, model.Genero, autor);
             repositorio.IncluirLivro(livro);
+
+            return Ok(new { dados = livro });
+        }
+
+        [HttpPost]
+        [Route("revisar/{isbn}")]
+        public IHttpActionResult RevisarLivro(int isbn, int idRevisor)
+        {
+            var livro = repositorio.ObterPorIsbn(isbn);
+            //var autor = repositorioAutor.ObterAutorPorId();
+            var revisor = new Revisor("blabla");
+            livro.Revisar(revisor);
+
+            repositorio.AlterarLivro(livro);
+
+            return Ok(new { dados = livro });
+        }
+
+        [HttpPost]
+        [Route("publicar/{isbn}")]
+        public IHttpActionResult PublicarLivro(int isbn)
+        {
+            var livro = repositorio.ObterPorIsbn(isbn);
+            livro.Publicar(new NotificacaoAssinantes());
+            repositorio.AlterarLivro(livro);
 
             return Ok(new { dados = livro });
         }

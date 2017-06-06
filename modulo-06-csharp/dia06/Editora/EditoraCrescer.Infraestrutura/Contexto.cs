@@ -1,4 +1,4 @@
-﻿using EditoraCrescer.Infraestrutura.Entidades;
+﻿using EditoraCrescer.Dominio;
 using EditoraCrescer.Infraestrutura.Mappings;
 using System;
 using System.Collections.Generic;
