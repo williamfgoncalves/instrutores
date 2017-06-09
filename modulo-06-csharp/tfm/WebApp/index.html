@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>NGames</title>
+
+  <base href="/">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+</head>
+
+<body ng-app="app">
+
+  <section class="hero is-primary is-small animated slideInDown">
+    <div class="hero-head">
+      <header class="nav">
+        <div class="container">
+          <div class="nav-left">
+            <a class="nav-item pacifico medium-text">NGames</a>
+          </div>
+          <span class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+
+          <div class="nav-right nav-menu" ng-controller="IndexController">
+            <a class="nav-item" ng-if="isAutenticado()">Bem vindo, {{ usuarioLogado.Nome }}</a>
+            <a class="nav-item" ng-if="isAutenticado()" routerLink="/home">Reservas</a>
+            <a class="nav-item" ng-if="isAutenticado()" routerLink="/devolucoes">Devoluções</a>
+            <a class="nav-item" ng-if="isAutenticado()" routerLink="/rel-locacao-mensal">Locações Mensais</a>
+            <a class="nav-item" ng-if="isAutenticado()" routerLink="/rel-atrasos">Atrasos</a>
+            <span class="nav-item">
+    <a class="button is-primary is-inverted" ng-click="logout()" ng-if="isAutenticado()">
+        <span class="icon">
+            <i class="fa fa-power-off"></i>
+        </span>
+            <span>Sair</span>
+            </a>
+            </span>
+          </div>
+
+        </div>
+      </header>
+    </div>
+  </section>
+
+  <!-- Rotas -->
+  <ng-view>
+    <section class="hero is-primary is-fullheight">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title pacifico larger-text">
+            NGames
+          </h1>
+          <h2 class="subtitle">
+            Carregando...
+          </h2>
+        </div>
+      </div>
+    </section>
+  </ng-view>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          <strong>NGames</strong> by <a href="https://github.com/giovanidecusati">Giovani Decusati</a>.
+        </p>
+        <p>
+          <a class="icon" href="https://github.com/giovanidecusati">
+          <i class="fa fa-github"></i>
+        </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+<!-- Angular, Rotas, Local Storage (Módulo 'auth' depende dele) -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js" type="text/javascript"></script>
+
+<!-- Aplicação -->
+<script src="app.module.js" type="text/javascript"></script>
+<script src="app.route.js" type="text/javascript"></script>
+<script src="index.controller.js" type="text/javascript"></script>
+<script src="home/home.controller.js" type="text/javascript"></script>
+<script src="login/login.controller.js" type="text/javascript"></script>
+<script src="services/data.service.js" type="text/javascript"></script>
+<!-- Autenticação -->
+<script src="modules/auth.module.js" type="text/javascript"></script>
+
+</html>

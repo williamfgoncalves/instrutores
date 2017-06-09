@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGames.WebApi", "NGames.WebApi\NGames.WebApi.csproj", "{595382CA-535F-4E09-9845-AD144BBCC321}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGames.Infrastruture", "NGames.Infrastruture\NGames.Infrastruture.csproj", "{9022F565-93BC-4210-A2CD-A74D891091C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGames.Domain", "NGames.Domain\NGames.Domain.csproj", "{60941103-B1E0-4BBC-BFF1-17AB87B670B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGames.Domain.UnitTest", "NGames.Domain.UnitTest\NGames.Domain.UnitTest.csproj", "{D3646514-5D32-45DD-9D40-8F086BCB10FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. WebApi", "1. WebApi", "{881992DC-E2B0-4306-9257-A9440277152E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Domain", "2. Domain", "{3A4DCFFB-43FA-4329-BBAA-F5232C79C1A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Infrastructure", "3. Infrastructure", "{5FACE03B-6F65-4580-9576-064BDEBD4373}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Test", "4. Test", "{DCCC112C-C963-409B-8DA9-2563DBCD8AA8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{595382CA-535F-4E09-9845-AD144BBCC321}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{595382CA-535F-4E09-9845-AD144BBCC321}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{595382CA-535F-4E09-9845-AD144BBCC321}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{595382CA-535F-4E09-9845-AD144BBCC321}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9022F565-93BC-4210-A2CD-A74D891091C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9022F565-93BC-4210-A2CD-A74D891091C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9022F565-93BC-4210-A2CD-A74D891091C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9022F565-93BC-4210-A2CD-A74D891091C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60941103-B1E0-4BBC-BFF1-17AB87B670B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60941103-B1E0-4BBC-BFF1-17AB87B670B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60941103-B1E0-4BBC-BFF1-17AB87B670B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60941103-B1E0-4BBC-BFF1-17AB87B670B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3646514-5D32-45DD-9D40-8F086BCB10FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3646514-5D32-45DD-9D40-8F086BCB10FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3646514-5D32-45DD-9D40-8F086BCB10FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3646514-5D32-45DD-9D40-8F086BCB10FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{595382CA-535F-4E09-9845-AD144BBCC321} = {881992DC-E2B0-4306-9257-A9440277152E}
+		{9022F565-93BC-4210-A2CD-A74D891091C9} = {5FACE03B-6F65-4580-9576-064BDEBD4373}
+		{60941103-B1E0-4BBC-BFF1-17AB87B670B5} = {3A4DCFFB-43FA-4329-BBAA-F5232C79C1A1}
+		{D3646514-5D32-45DD-9D40-8F086BCB10FC} = {DCCC112C-C963-409B-8DA9-2563DBCD8AA8}
+	EndGlobalSection
+EndGlobal
