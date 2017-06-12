@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<link rel="icon" type="image/png" href="favicon.png" />
+		<title>Display</title>
+
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+			}
+
+			.float {
+				float: left;
+			}
+
+			.width-50 {
+				width: 50%;
+			}
+
+			.container {
+				background: red;
+				padding: 20px;
+			}
+
+			.clearfix:after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+		</style>
+		
+	</head>
+	<body>
+
+		<div class="clearfix container">
+			<div class="float width-50">Div1</div>
+			<div class="float width-50">Div2</div>
+		</div>
+
+	</body>
+</html>

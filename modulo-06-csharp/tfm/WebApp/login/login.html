@@ -1,0 +1,50 @@
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title pacifico larger-text">
+        NGames
+      </h1>
+      <div class="column is-half is-offset-one-quarter">
+        <div>
+        </div>
+
+        <form novalidate name="formLogin" ng-submit="login(usuario)">
+          <p class="control" id="usernameControl">
+            <input class="input is-large" type="username" placeholder="Usuário" ng-model="usuario.email">
+          </p>
+
+          <p class="control">
+            <input class="input is-large" type="password" placeholder="Senha" formControlName="password" ng-model="usuario.senha">
+          </p>
+
+          <p>
+            <button (click)="submit()" class="button is-primary is-inverted is-outlined is-large is-fullwidth" [disabled]="!form.valid">ENTRAR</button>
+            <br>
+            <a routerLink="/signup" class="button is-link is-fullwidth">AINDA NÃO SOU CADASTRADO</a>
+          </p>
+          <hr>
+          <p>
+            <button (click)="showModal()" class="button is-link is-fullwidth">TERMOS DE USO</button>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<div class="modal animated fadeIn" id="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Termos de Uso</p>
+      <button class="delete" (click)="hideModal()"></button>
+    </header>
+    <section class="modal-card-body">
+      Conteúdo do Modal
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button" (click)="hideModal()">OK</button>
+    </footer>
+  </div>
+</div>

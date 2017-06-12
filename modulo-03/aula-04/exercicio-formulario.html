@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<link rel="icon" type="image/png" href="favicon.png" />
+	<title>Formulario</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Formulário de Cadastro</h1>
+			</div>
+		</div>
+		<hr>
+		<form>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="nome">Nome Completo</label>
+						<input type="text" class="form-control" id="nome" placeholder="Ex.: Pedro Henrique Pires">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="email" class="form-control" id="email" placeholder="Ex.: pedro.pires@cwi.com.br">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="data">Data de Nascimento</label>
+						<input type="date" class="form-control" id="data">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="estado">Estado</label>
+						<select id="estado" class="form-control">
+							<option value="RS">Rio Grande do Sul</option>
+							<option value="BA">Bahia</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="cidade">Cidade</label>
+						<input type="text" class="form-control" id="cidade">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="sexo">Sexo</label>
+						<select id="sexo" class="form-control">
+							<option value="1">Masculino</option>
+							<option value="2">Feminino</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-md-12 text-right">
+					<button type="submit" class="btn btn-primary">Enviar</button>
+					<button type="reset" class="btn btn-default">Limpar</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

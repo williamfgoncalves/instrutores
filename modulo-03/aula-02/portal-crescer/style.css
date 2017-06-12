@@ -1,0 +1,102 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+	background: #fafafa;
+	width: 100%;
+}
+
+.header {
+	width: 100%;
+	background: #c4170c;
+	color: #fff;
+	font-weight: bolder;
+	text-align: center;
+	padding: 20px 0;
+	font-size: 24px;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+.container {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.clearfix:after {
+	display: block;
+	clear: both;
+	content: "";
+}
+
+.noticia-wrapper {
+	float: left;
+	width: 50%;
+	padding: 20px 20px;
+}
+
+.noticia-wrapper:nth-child(even) {
+	float: right;
+}
+
+.noticia {
+	padding: 20px 40px;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+}
+
+.noticia > .titulo-noticia {
+	letter-spacing: -1px;
+	line-height: 35px;
+	color: #c4170c;
+}
+
+.noticia > .subtitulo-noticia {
+	line-height: 22px;
+	color: #bbb;
+	font-weight: normal;
+	font-size: 18px;
+	letter-spacing: -1px;
+	margin-top: 0;
+}
+
+.noticia > .conteudo-noticia {
+	line-height: 32px;
+	color: #333;
+}
+
+.noticia > .conteudo-noticia > p:first-child:first-letter {
+	float: left;
+	font-size: 3.7rem;
+	color: #c4170c;
+	letter-spacing: 10px;
+	margin-top: .25em;
+}
+
+.noticia > .imagem-noticia {
+	float: right;
+	width: 30%;
+	margin: 13px;
+}
+
+.noticia > .tempo-noticia {
+	color: #bbb;
+	font-weight: 100;
+	float: right;
+}
+
+@media screen and (max-width: 800px) {
+	.noticia-wrapper {
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 800px) and (max-width: 900px) {
+	.noticia > .titulo-noticia {
+		color: blue;
+	}
+}

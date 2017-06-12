@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="app">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Formulários</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div class="container" ng-controller="MainController">
+
+    <form novalidate name="meuForm" ng-submit="incluir()">
+
+      <label for="nome">nome:</label>
+      <input type="text" name="nome" ng-model="novoInstrutor.nome" required ng-minlength="3" ng-maxlength="20"/>
+      <hr />
+
+      <label for="sobrenome">sobrenome:</label>
+      <input type="text" name="sobrenome" ng-model="novoInstrutor.sobrenome" ng-maxlength="30"/>
+      <hr />
+
+      <label for="idade">idade:</label>
+      <input type="number" name="idade" ng-model="novoInstrutor.idade" required />
+      <hr />
+
+      <label for="email">email:</label>
+      <input type="email" name="email" ng-model="novoInstrutor.email" required />
+      <hr />
+
+      <label for="checkbox">Ja deu aula? 
+      <input type="checkbox" ng-model="novoInstrutor.jaDeuAula">
+      </label>
+      <hr />
+
+      <label for="aula">aula:</label>
+      <select name="aula" ng-model="novoInstrutor.aula">
+        <option ng-repeat="aula in aulas" value="{{aula}}">{{aula}}</option>
+      </select>
+      <hr />
+
+      <button type="submit">Incluir</button>
+
+    </form>
+
+    <h1>Instrutores</h1>
+
+    <ul>
+      <li ng-repeat="instrutor in instrutores">
+        {{ instrutor | json }}
+      </li>
+    </ul>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script><!-- ng -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.6.4/angular-locale_pt-br.min.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>

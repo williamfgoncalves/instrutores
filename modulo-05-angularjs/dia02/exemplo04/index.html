@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="aula02">
+
+<head>
+  <title>Aula02 - Exemplo04</title>
+</head>
+
+<body>
+
+  <div ng-controller="Exemplo04">
+
+    <h2>Filtro da Mascada</h2>
+
+    <ul>
+      <li ng-repeat="instrutor in instrutores">
+        {{ instrutor.nome | mascada }}
+      </li>
+    </ul>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="controller.js"></script>
+</body>
+
+</html>

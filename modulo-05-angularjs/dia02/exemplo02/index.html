@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="aula02">
+
+<head>
+  <title>Aula02 - Exemplo01</title>
+</head>
+
+<body>
+
+  <div ng-controller="Exemplo01">
+
+    <label for="valor">Valor</label>
+    <input type="number" ng-model="valor"/>
+    <span>{{ valor | currency }}</span>
+    <br />
+    <br />
+
+    <label for="dataDigitada">Data Sem Formatacao</label>
+    <input type="text" ng-model="dataDigitada" ng-change="imprime()" />
+    <span>{{ dataDigitada | date:'mediumDate'}}</span><br>
+    <br />
+    <br />
+
+    <button ng-click="minhaFuncao()">Logar ao clicar!</button>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <!--<script src="pt-br.js"></script>-->
+  <script src="controller.js"></script>
+</body>
+
+</html>

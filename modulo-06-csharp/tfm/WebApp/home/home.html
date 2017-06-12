@@ -1,0 +1,225 @@
+</br>
+<form novalidate name="formHome" ng-controller="HomeController">
+  <!-- CLIENTE -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Cliente</h1>
+      <div class="container has-text-left">
+        <!-- CPF -->
+        <div class="field">
+          <label class="label">Cpf</label>
+          <p class="control">
+            <input class="input" type="text" placeholder="000.000.000-00" ng-model="cliente.cpf" ng-blur="buscarCliente()">
+          </p>
+          <p class="help is-danger">* campo obrigatório.</p>
+        </div>
+        <!-- NOME -->
+        <div class="field">
+          <label class="label">Nome</label>
+          <p class="control">
+            <input class="input" type="text" placeholder="informe o nome do cliente" ng-model="cliente.nome">
+            <p class="help is-danger">* campo obrigatório.</p>
+          </p>
+        </div>
+        <!-- DT NASCIMENTO -->
+        <div class="field">
+          <label class="label">Data de Nascimento</label>
+          <p class="control">
+            <input class="input" type="date" placeholder="01/01/1900" ng-model="cliente.dtNascimento">
+            <p class="help is-danger">* campo obrigatório.</p>
+          </p>
+        </div>
+        <!-- GENERO -->
+        <div class="field">
+          <label class="label">Gênero</label>
+          <p class="control">
+            <span class="select">
+              <select ng-model="cliente.genero" ng-options="genero.id as genero.texto for genero in generos">-->
+              <!--<select name="genero" ng-model="cliente.genero">-->
+                <option value="1">Não Informado</option>
+                <option value="2">Masculino</option>
+                <option value="3">Feminino</option>
+              </select>
+            </span>
+          </p>
+          <p class="help is-danger">* campo obrigatório.</p>
+        </div>
+        <!-- LOGRAOURO -->
+        <div class="field">
+          <label class="label">Logradouro</label>
+          <p class="control">
+            <input class="input" type="text" placeholder="informe a rua, avenida, etc..." ng-model="cliente.logradouro">
+            <p class="help is-danger">* campo obrigatório.</p>
+          </p>
+        </div>
+        <!-- CIDADE -->
+        <div class="field">
+          <label class="label">Cidade</label>
+          <p class="control">
+            <input class="input" type="text" placeholder="informe a cidade" ng-model="cliente.cidade">
+            <p class="help is-danger">* campo obrigatório.</p>
+          </p>
+        </div>
+        <!-- ESTADO -->
+        <div class="field">
+          <label class="label">Estado</label>
+          <p class="control">
+            <input class="input" type="text" placeholder="sigla do estado" ng-model="cliente.estado">
+            <p class="help is-danger">* campo obrigatório.</p>
+          </p>
+        </div>
+        <!-- CEP -->
+        <div class="field">
+          <label class="label">Cep</label>
+          <p class="control">
+            <input class="input" type="text" placeholder="00.000-000" ng-model="cliente.cep">
+            <p class="help is-danger">* campo obrigatório.</p>
+          </p>
+        </div>
+      </div>
+      <div>
+        <a class="button is-success" ng-click="salvarCliente()">
+          <span class="icon is-large">
+            <i class="fa fa-check"></i>
+          </span>
+          <span>Save</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTO -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Produto</h1>
+      <!--- Produto 1-->
+      <div class="card" ng-repeat="produto in produtos">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                <img src="assets/unchecked_checkbox.png" alt="Não selecionado" ng-if="produto.quantidade > 0 && reserva.idProduto != produto.id"
+                  ng-click="selecionarProduto(produto)" />
+                <img src="assets/checked_checkbox.png" alt="Selecionado" ng-if="reserva.idProduto == produto.id" ng-click="selecionarProduto(produto)"
+                />
+                <img src="assets/sold_out.png" alt="Não disponível" ng-if="produto.quantidade == 0" />
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">{{produto.nome}}</p>
+              <p class="subtitle is-6">Diária R${{produto.diaria}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACOTE -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Pacote</h1>
+      <!--- Pacote 1-->
+      <div class="card" ng-repeat="pacote in pacotes">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                <img src="assets/unchecked_checkbox.png" alt="Não selecionado" ng-if="reserva.idPacote != pacote.id" ng-click="selecionarPacote(pacote)"
+                />
+                <img src="assets/checked_checkbox.png" alt="Selecionado" ng-if="reserva.idPacote == pacote.id" ng-click="selecionarPacote(pacote)"
+                />
+              </figure>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <p class="title is-4">{{pacote.nome}}</p>
+                <p class="subtitle is-6">Valor R${{pacote.valor}} Desconto R${{pacote.desconto}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- OPCIONAIS -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Opcionais</h1>
+      <!--- Opcional 1-->
+      <div class="card" ng-repeat="opcional in opcionais">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                <img src="assets/unchecked_checkbox.png" alt="Não selecionado" ng-if="opcional.quantidade > 0 && !!!opcional.selecionado"
+                  ng-click="selecionarOpcional(opcional)" />
+                <img src="assets/checked_checkbox.png" alt="Selecionado" ng-if="!!opcional.selecionado" ng-click="selecionarOpcional(opcional)"
+                />
+                <img src="assets/sold_out.png" alt="Não disponível" ng-if="opcional.quantidade == 0" />
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">{{opcional.nome}}</p>
+              <p class="subtitle is-6">R${{opcional.diaria}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Totais -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Totais</h1>
+      <div class="card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="column is-6"><input class="input is-medium" type="number" placeholder="Diárias" ng-model="reserva.diarias"></p>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">Produto(s)</p>
+              <p class="subtitle is-6">R${{totais.totalProduto}}</p>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">Pacote(s)</p>
+              <p class="subtitle is-6">R${{totais.totalPacote}}</p>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">Descontos(s)</p>
+              <p class="subtitle is-6">R${{totais.totalDescontos}}</p>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">Opcional(s)</p>
+              <p class="subtitle is-6">R${{totais.totalOpcionais}}</p>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">Total da Reserva</p>
+              <p class="subtitle is-6">R${{totais.totalReserva}}</p>
+            </div>
+            <div class="media-content">
+              <a class="button is-success" ng-click="finalizar(reserva)">
+                  <span class="icon is-large">
+                    <i class="fa fa-check"></i>
+                  </span>
+                  <span>Save</span>
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal" ng-class="!reserva.id==0 ? 'modal is-active' : 'modal' ">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="notification is-primary">
+        <button class="delete" ng-click="fecharModal()"></button>Reserva gerada com sucesso!
+      </div>
+    </div>
+    <button class="modal-close"></button>
+  </div>
+
+</form>
