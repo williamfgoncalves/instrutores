@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'Cp1252'?>
+<UT>
+   <object class="oracle.dbtools.unit_test.testObjects.UtTest">
+      <test id="8b1d3fbb-f416-4141-9833-e2e1956cb03d" name="pck_cidade - exclui_cidades_duplicadas" obj_name="PCK_CIDADE" obj_owner="CRESCER2017" obj_type="PROCEDURE" obj_call="EXCLUI_CIDADES_DUPLICADAS" src_conn_name="IdeConnections%23CRESCER+2017+-+Aula" coverage="false">
+         <arg id="7cb057fc-5f47-404d-9351-2e22903a0301" owner="CRESCER2017" object_name="EXCLUI_CIDADES_DUPLICADAS" package_name="PCK_CIDADE" object_id="47068" argument_name="PNOME" position="1" sequence="1" data_level="0" data_type="VARCHAR2" in_out="IN" character_set_name="CHAR_CS" pls_type="VARCHAR2" char_used="B"/>
+         <arg id="56bd241f-d5cb-49cc-83ec-aed0db448f9f" owner="CRESCER2017" object_name="EXCLUI_CIDADES_DUPLICADAS" package_name="PCK_CIDADE" object_id="47068" argument_name="PUF" position="2" sequence="2" data_level="0" data_type="VARCHAR2" in_out="IN" character_set_name="CHAR_CS" pls_type="VARCHAR2" char_used="B"/>
+         <arg id="f588c8e8-3e15-4aea-be9f-a12b5c576361" owner="CRESCER2017" object_name="EXCLUI_CIDADES_DUPLICADAS" package_name="PCK_CIDADE" object_id="47068" argument_name="PMENORIDCIDADE" position="3" sequence="3" data_level="0" data_type="NUMBER" in_out="IN" data_length="22" data_precision="38" radix="10" pls_type="INTEGER" char_length="0" char_used="0"/>
+         <startup id="2e9336a2-1022-425f-b4f7-abde4d1b36da">
+            <startup>
+               <class>oracle.dbtools.unit_test.startup.PlSqlStartup</class>
+               <name>User PL/Sql Code</name>
+               <description>-- Please specify any code you want to run before the
+-- test operation is called. For example:
+BEGIN
+    insert into Cidade (IDCidade, Nome, UF) values (99997, 'Morro da Pedra', 'RS');
+    insert into Cidade (IDCidade, Nome, UF) values (99998, 'Morro da Pedra', 'RS');
+    insert into Cidade (IDCidade, Nome, UF) values (99999, 'Morro da Pedra', 'RS');
+END;
+</description>
+               <code>-- Please specify any code you want to run before the
+-- test operation is called. For example:
+BEGIN
+    insert into Cidade (IDCidade, Nome, UF) values (99997, 'Morro da Pedra', 'RS');
+    insert into Cidade (IDCidade, Nome, UF) values (99998, 'Morro da Pedra', 'RS');
+    insert into Cidade (IDCidade, Nome, UF) values (99999, 'Morro da Pedra', 'RS');
+END;
+</code>
+            </startup>
+         </startup>
+         <teardown id="7dcb5bf5-0411-40cb-abf1-f8b78b785d46">
+            <teardown>
+               <class>oracle.dbtools.unit_test.teardown.PlSqlTeardown</class>
+               <name>User PL/Sql Code</name>
+               <description>-- Please specify any code you want to run after the
+-- test operation has been called. For example:
+BEGIN
+    Delete Cidade
+    Where  IDCidade in (99997, 99998, 99999);
+END;
+</description>
+               <code>-- Please specify any code you want to run after the
+-- test operation has been called. For example:
+BEGIN
+    Delete Cidade
+    Where  IDCidade in (99997, 99998, 99999);
+END;
+</code>
+            </teardown>
+         </teardown>
+         <test_impl id="e8965d98-efb2-446b-ace2-82c59ea7f458" test_id="8b1d3fbb-f416-4141-9833-e2e1956cb03d" name="Exclui Cidade Duplicada" expected_ret="Success" expected_err="ANY">
+            <parm argId="f588c8e8-3e15-4aea-be9f-a12b5c576361" utiId="e8965d98-efb2-446b-ace2-82c59ea7f458" input_value="&lt;?xml version = '1.0' encoding = 'UTF-8'?>&#xD;&#xA;&lt;DataValue name=&quot;PMENORIDCIDADE&quot;>99997&lt;/DataValue>" test_out_val="true"/>
+            <parm argId="56bd241f-d5cb-49cc-83ec-aed0db448f9f" utiId="e8965d98-efb2-446b-ace2-82c59ea7f458" input_value="&lt;?xml version = '1.0' encoding = 'UTF-8'?>&#xD;&#xA;&lt;DataValue name=&quot;PUF&quot;>RS&lt;/DataValue>" test_out_val="true"/>
+            <parm argId="7cb057fc-5f47-404d-9351-2e22903a0301" utiId="e8965d98-efb2-446b-ace2-82c59ea7f458" input_value="&lt;?xml version = '1.0' encoding = 'UTF-8'?>&#xD;&#xA;&lt;DataValue name=&quot;PNOME&quot;>Morro da Pedra&lt;/DataValue>" test_out_val="true"/>
+            <validation id="6ea1882a-7cf2-4bb4-b87a-1d9c894e6b7d" apply="true">
+               <validation>
+                  <class>oracle.dbtools.unit_test.process_validation.BooleanFunction</class>
+                  <name>Boolean function</name>
+                  <description>-- Please replace this code with either a boolean
+-- expression like this:
+--     RETURN FALSE;
+-- or else a code block which returns a boolean value
+-- similar to the following:
+DECLARE
+    vRegistros NUMBER;
+BEGIN
+    SELECT count(*) 
+    INTO   vRegistros
+    FROM   Cidade
+    WHERE  Nome = 'Morro da Pedra'
+    AND    UF   = 'RS';
+    
+    IF vRegistros = 1
+    THEN
+        RETURN TRUE;
+    ELSE
+        RETURN FALSE;
+    END IF;
+END;
+</description>
+                  <code>-- Please replace this code with either a boolean
+-- expression like this:
+--     RETURN FALSE;
+-- or else a code block which returns a boolean value
+-- similar to the following:
+DECLARE
+    vRegistros NUMBER;
+BEGIN
+    SELECT count(*) 
+    INTO   vRegistros
+    FROM   Cidade
+    WHERE  Nome = 'Morro da Pedra'
+    AND    UF   = 'RS';
+    
+    IF vRegistros = 1
+    THEN
+        RETURN TRUE;
+    ELSE
+        RETURN FALSE;
+    END IF;
+END;
+</code>
+               </validation>
+            </validation>
+         </test_impl>
+      </test>
+   </object>
+</UT>

@@ -1,0 +1,133 @@
+<?xml version = '1.0' encoding = 'Cp1252'?>
+<UT>
+   <object class="oracle.dbtools.unit_test.testObjects.UtTest">
+      <test id="0488471f-9a8d-4971-8b31-4744c3c28cf9" name="pck_cidade - ajusta_cidade_cliente" obj_name="PCK_CIDADE" obj_owner="CRESCER2017" obj_type="PROCEDURE" obj_call="AJUSTA_CIDADE_CLIENTE" src_conn_name="IdeConnections%23CRESCER+2017+-+Aula" coverage="false">
+         <arg id="74e241d5-85af-4e70-92ec-85ec55f60c82" owner="CRESCER2017" object_name="AJUSTA_CIDADE_CLIENTE" package_name="PCK_CIDADE" object_id="47068" argument_name="PNOME" position="1" sequence="1" data_level="0" data_type="VARCHAR2" in_out="IN" character_set_name="CHAR_CS" pls_type="VARCHAR2" char_used="B"/>
+         <arg id="b618133f-c5ab-4b17-8db8-80409b684a35" owner="CRESCER2017" object_name="AJUSTA_CIDADE_CLIENTE" package_name="PCK_CIDADE" object_id="47068" argument_name="PUF" position="2" sequence="2" data_level="0" data_type="VARCHAR2" in_out="IN" character_set_name="CHAR_CS" pls_type="VARCHAR2" char_used="B"/>
+         <arg id="03af6166-4aeb-48a0-b0d4-21ac7bc01fae" owner="CRESCER2017" object_name="AJUSTA_CIDADE_CLIENTE" package_name="PCK_CIDADE" object_id="47068" argument_name="PMENORIDCIDADE" position="3" sequence="3" data_level="0" data_type="NUMBER" in_out="IN" data_length="22" data_precision="38" radix="10" pls_type="INTEGER" char_length="0" char_used="0"/>
+         <startup id="0ee5612d-4cd3-499d-870c-625c294e8347">
+            <startup>
+               <class>oracle.dbtools.unit_test.startup.PlSqlStartup</class>
+               <name>User PL/Sql Code</name>
+               <description>-- Please specify any code you want to run before the
+-- test operation is called. For example:
+BEGIN
+    insert into Cidade (IDCidade, Nome, UF) values (99997, 'Morro da Pedra', 'RS');
+    insert into Cidade (IDCidade, Nome, UF) values (99998, 'Morro da Pedra', 'RS');
+    insert into Cidade (IDCidade, Nome, UF) values (99999, 'Morro da Pedra', 'RS');
+            
+    insert into Cliente (IDCliente, Nome, RazaoSocial, IDCidade, Situacao) values (999998, 'Maria', 'Maria', 99998, 'A');
+    insert into Cliente (IDCliente, Nome, RazaoSocial, IDCidade, Situacao) values (999999, 'Julia', 'Julia', 99999, 'A');       
+END;
+</description>
+               <code>-- Please specify any code you want to run before the
+-- test operation is called. For example:
+BEGIN
+    insert into Cidade (IDCidade, Nome, UF) values (99997, 'Morro da Pedra', 'RS');
+    insert into Cidade (IDCidade, Nome, UF) values (99998, 'Morro da Pedra', 'RS');
+    insert into Cidade (IDCidade, Nome, UF) values (99999, 'Morro da Pedra', 'RS');
+            
+    insert into Cliente (IDCliente, Nome, RazaoSocial, IDCidade, Situacao) values (999998, 'Maria', 'Maria', 99998, 'A');
+    insert into Cliente (IDCliente, Nome, RazaoSocial, IDCidade, Situacao) values (999999, 'Julia', 'Julia', 99999, 'A');       
+END;
+</code>
+            </startup>
+         </startup>
+         <teardown id="816b2f7f-1f26-4afa-89b3-23b5934faf42">
+            <teardown>
+               <class>oracle.dbtools.unit_test.teardown.PlSqlTeardown</class>
+               <name>User PL/Sql Code</name>
+               <description>-- Please specify any code you want to run after the
+-- test operation has been called. For example:
+BEGIN
+    delete Cliente 
+    where  IDCliente in (999998, 999999);
+    
+    delete Cidade
+    where  IDCidade in (99997, 99998, 99999);
+END;
+</description>
+               <code>-- Please specify any code you want to run after the
+-- test operation has been called. For example:
+BEGIN
+    delete Cliente 
+    where  IDCliente in (999998, 999999);
+    
+    delete Cidade
+    where  IDCidade in (99997, 99998, 99999);
+END;
+</code>
+            </teardown>
+         </teardown>
+         <test_impl id="bb2c5be1-15e2-41e5-bd3c-08aa8c892094" test_id="0488471f-9a8d-4971-8b31-4744c3c28cf9" name="Altera Clientes Cidades Duplicadas" expected_ret="Success" expected_err="ANY">
+            <parm argId="74e241d5-85af-4e70-92ec-85ec55f60c82" utiId="bb2c5be1-15e2-41e5-bd3c-08aa8c892094" input_value="&lt;?xml version = '1.0' encoding = 'UTF-8'?>&#xD;&#xA;&lt;DataValue name=&quot;PNOME&quot;>Morro da Pedra&lt;/DataValue>" test_out_val="true"/>
+            <parm argId="03af6166-4aeb-48a0-b0d4-21ac7bc01fae" utiId="bb2c5be1-15e2-41e5-bd3c-08aa8c892094" input_value="&lt;?xml version = '1.0' encoding = 'UTF-8'?>&#xD;&#xA;&lt;DataValue name=&quot;PMENORIDCIDADE&quot;>99997&lt;/DataValue>" test_out_val="true"/>
+            <parm argId="b618133f-c5ab-4b17-8db8-80409b684a35" utiId="bb2c5be1-15e2-41e5-bd3c-08aa8c892094" input_value="&lt;?xml version = '1.0' encoding = 'UTF-8'?>&#xD;&#xA;&lt;DataValue name=&quot;PUF&quot;>RS&lt;/DataValue>" test_out_val="true"/>
+            <validation id="5ee3f53c-43c1-4887-a8db-005d499902dd" apply="true">
+               <validation>
+                  <class>oracle.dbtools.unit_test.process_validation.BooleanFunction</class>
+                  <name>Boolean function</name>
+                  <description>-- Please replace this code with either a boolean
+-- expression like this:
+--     RETURN FALSE;
+-- or else a code block which returns a boolean value
+-- similar to the following:
+DECLARE
+    vCidadesDup NUMBER;
+    vCidadeOK   NUMBER;
+BEGIN
+    
+    SELECT count(*) 
+    INTO   vCidadesDup 
+    FROM   Cliente
+    WHERE  IDCidade in (99998, 99999);
+    
+    SELECT count(*) 
+    INTO   vCidadeOK 
+    FROM   Cliente
+    WHERE  IDCidade = 99997;
+        
+    
+    IF vCidadesDup = 0 and vCidadeOK = 2
+    THEN
+        RETURN TRUE;
+    ELSE
+        RETURN FALSE;
+    END IF;
+END;
+</description>
+                  <code>-- Please replace this code with either a boolean
+-- expression like this:
+--     RETURN FALSE;
+-- or else a code block which returns a boolean value
+-- similar to the following:
+DECLARE
+    vCidadesDup NUMBER;
+    vCidadeOK   NUMBER;
+BEGIN
+    
+    SELECT count(*) 
+    INTO   vCidadesDup 
+    FROM   Cliente
+    WHERE  IDCidade in (99998, 99999);
+    
+    SELECT count(*) 
+    INTO   vCidadeOK 
+    FROM   Cliente
+    WHERE  IDCidade = 99997;
+        
+    
+    IF vCidadesDup = 0 and vCidadeOK = 2
+    THEN
+        RETURN TRUE;
+    ELSE
+        RETURN FALSE;
+    END IF;
+END;
+</code>
+               </validation>
+            </validation>
+         </test_impl>
+      </test>
+   </object>
+</UT>
