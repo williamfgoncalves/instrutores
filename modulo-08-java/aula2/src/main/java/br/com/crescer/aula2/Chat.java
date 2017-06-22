@@ -37,7 +37,7 @@ public class Chat {
 
     public static void main(String[] args) {
         if (args.length < 2) {
-            args = new String[]{"\\\\10.0.100.102\\cwitmp\\carloshenrique\\aula2.txt", "@carloshenrique"};
+            args = new String[]{"\\\\10.0.100.102\\cwitmp\\carloshenrique\\aula.txt", "@carloshenrique"};
         }
 
         final String fileName = args[0];
