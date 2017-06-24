@@ -7,15 +7,14 @@ import javax.persistence.Persistence;
 /**
  * @author carloshenrique
  */
-public class Run {
+public class JPA {
 
     public static void main(String[] args) {
         final EntityManagerFactory emf = Persistence.createEntityManagerFactory("CRESCER");
         final EntityManager em = emf.createEntityManager();
 
-        
         final Cliente cliente = em.find(Cliente.class, 1l);
-        cliente.setNome("Pedro Henrique Nonnemacher");
+        cliente.setNome("JPA - TEST");
         em.detach(cliente);
         
         em.getTransaction().begin();
