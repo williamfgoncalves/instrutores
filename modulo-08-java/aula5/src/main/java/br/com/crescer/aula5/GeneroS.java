@@ -1,14 +1,10 @@
 package br.com.crescer.aula5;
 
 import br.com.crescer.aula4.tema.Genero;
-import br.com.crescer.aula4.tema.GeneroDao;
-import br.com.crescer.aula4.tema.GeneroDaoImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import javax.ejb.EJB;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,12 +18,12 @@ import javax.servlet.http.HttpServletResponse;
 public class GeneroS extends HttpServlet {
 
     @EJB
-    private GeneroBean bean;
+    private GeneroBean generoBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        final List<Genero> list = bean.findAll();
+        final List<Genero> list = generoBean.findAll();
 
         try (final PrintWriter out = resp.getWriter()) {
             out.append("<!DOCTYPE html>");
@@ -59,7 +55,7 @@ public class GeneroS extends HttpServlet {
 //            final GeneroDao generoDao = new GeneroDaoImpl(entityManager);
             final Genero genero = new Genero();
             genero.setDescricao(nome);
-            bean.save(genero);
+            generoBean.save(genero);
         }
         resp.sendRedirect("/aula5/genero");
     }

@@ -13,11 +13,13 @@
     </head>
 
     <body>
-
         <div class="container">
 
+        <% String title = "FORM PESSOA"; %>
+        <h1><% out.println(title);%></h1>
+
             <h1 class="page-header">Pessoas</h1>
-            <form action="pessoa" method="POST">
+            <form>
 
                 <div class="form-group">
                     <label class="sr-only" for="nome">Nome</label>
@@ -41,12 +43,12 @@
             }();
 
 //            Caso o envio for feito por ajax.
-//            $('form').submit(function () {
-//                debugger;
-//                $.post('pessoa', $('form').serialize(), function (data) {
-//                    findAll();
-//                });
-//            });
+            $('form').submit(function () {
+                debugger;
+                $.post('pessoa', $('form').serialize(), function (data) {
+                    findAll();
+                });
+            });
 
         </script>
 
