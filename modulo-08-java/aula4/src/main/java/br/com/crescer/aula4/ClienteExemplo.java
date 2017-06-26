@@ -9,7 +9,7 @@ import javax.persistence.Id;
  * @author carloshenrique
  */
 @Entity
-public class Cliente {
+public class ClienteExemplo {
 
     @Id // Identifica a PK
     @Basic(optional = false)
@@ -20,10 +20,10 @@ public class Cliente {
     @Column(name = "NM_CLIENTE")
     private String nome;
 
-    public Cliente() {
+    public ClienteExemplo() {
     }
 
-    public Cliente(Long id, String nome) {
+    public ClienteExemplo(Long id, String nome) {
         this.id = id;
         this.nome = nome;
     }

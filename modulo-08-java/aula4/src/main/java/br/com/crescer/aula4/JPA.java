@@ -13,7 +13,7 @@ public class JPA {
         final EntityManagerFactory emf = Persistence.createEntityManagerFactory("CRESCER");
         final EntityManager em = emf.createEntityManager();
 
-        final Cliente cliente = em.find(Cliente.class, 1l);
+        final ClienteExemplo cliente = em.find(ClienteExemplo.class, 1l);
         cliente.setNome("JPA - TEST");
         em.detach(cliente);
         

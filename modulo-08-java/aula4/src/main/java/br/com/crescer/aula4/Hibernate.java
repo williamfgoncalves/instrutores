@@ -27,15 +27,15 @@ public class Hibernate {
 //        criteria.add(Restrictions.ilike("nome", "Henrique", MatchMode.ANYWHERE));
 //        criteria.setMaxResults(1);
 //        final Cliente cliente =  (Cliente) criteria.uniqueResult();
-        final Cliente cliente = new Cliente();
+        final ClienteExemplo cliente = new ClienteExemplo();
         cliente.setNome("JPA%");
 
-        final Criteria criteria = session.createCriteria(Cliente.class);
+        final Criteria criteria = session.createCriteria(ClienteExemplo.class);
         criteria.add(Example.create(cliente));
         criteria.setMaxResults(1);
         criteria.uniqueResult();
 
-        System.out.println(((Cliente)criteria.uniqueResult()).getNome());
+        System.out.println(((ClienteExemplo)criteria.uniqueResult()).getNome());
         
         entityManager.getTransaction().commit();
         entityManager.close();
