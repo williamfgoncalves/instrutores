@@ -3,7 +3,6 @@ package br.com.crescer.aula4.tema;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import javax.persistence.EntityManager;
-import org.hibernate.Session;
 
 /**
  * @author carloshenrique
@@ -20,9 +19,9 @@ public abstract class AbstractCrudDao<Entity, ID> implements CrudDao<Entity, ID>
 
     @Override
     public Entity save(Entity entity) {
-        getEntityManager().getTransaction().begin();
+//        getEntityManager().getTransaction().begin();
         getEntityManager().persist(entity);
-        getEntityManager().getTransaction().commit();
+//        getEntityManager().getTransaction().commit();
         return entity;
     }
 
@@ -40,7 +39,8 @@ public abstract class AbstractCrudDao<Entity, ID> implements CrudDao<Entity, ID>
 
     @Override
     public List<Entity> findAll() {
-        return ((Session) getEntityManager().unwrap(Session.class)).createCriteria(entityClass).list();
+        return getEntityManager().createQuery("select p from " + entityClass.getSimpleName() + " p").getResultList();
+//        return ((Session) getEntityManager().unwrap(Session.class)).createCriteria(entityClass).list();
     }
     
     abstract EntityManager getEntityManager();
