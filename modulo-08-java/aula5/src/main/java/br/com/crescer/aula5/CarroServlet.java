@@ -16,6 +16,7 @@ public class CarroServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         resp.setContentType("application/json");
         try (final PrintWriter writer = resp.getWriter()) {
             writer.append(" { \"marca\" : \"VW\", \"modelo\" : \"UP\"} ");
