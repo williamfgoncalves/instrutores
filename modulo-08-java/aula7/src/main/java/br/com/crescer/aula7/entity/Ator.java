@@ -46,4 +46,7 @@ public class Ator implements Serializable {
         this.nome = nome;
     }
 
+    public Ator() {
+    }
+
 }

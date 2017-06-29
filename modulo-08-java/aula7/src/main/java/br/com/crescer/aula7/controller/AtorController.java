@@ -10,6 +10,11 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,11 +28,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/ator")
-public class TestController {
+public class AtorController {
 
     @Autowired
     private AtorService atorService;
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/current_date_time.php")
     public Map<String, Object> getCurrentDateTime() {
         final Map<String, Object> map = new HashMap();
@@ -50,4 +56,13 @@ public class TestController {
     public List<Ator> list(@RequestBody Ator a) {
         return Stream.of(a).collect(Collectors.toList());
     }
+
+    @GetMapping("/user")
+    public UserDetails getUser(Authentication authentication) {
+        return (UserDetails) SecurityContextHolder
+                .getContext()
+                .getAuthentication()
+                .getPrincipal();
+    }
+
 }

@@ -6,6 +6,7 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,16 +30,23 @@ public class IntegrationTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
-    
+
     @Autowired
     private ObjectMapper mapper;
+
+    private String host;
+
+    @Before
+    public void setBefore() {
+        this.host = "http://localhost:" + port;
+    }
 
     /**
      * Test of getCurrentDateTime method, of class TestController.
      */
     @Test
     public void testGetCurrentDateTime() {
-        final Map map = this.restTemplate.getForObject("http://localhost:" + port + "/ator/current_date_time.php", Map.class);
+        final Map map = this.restTemplate.getForObject(host + "/ator/current_date_time.php", Map.class);
         assertNotNull(map.containsKey("data"));
     }
 
@@ -48,7 +56,7 @@ public class IntegrationTest {
     @Test
     public void testFindOne() {
         final Long id = Long.valueOf(1);
-        assertEquals(id, this.restTemplate.getForObject("http://localhost:" + port + "/ator/" + id, Ator.class).getId());
+        assertEquals(id, this.restTemplate.getForObject(host + "/ator/" + id, Ator.class).getId());
     }
 
     /**
@@ -56,7 +64,7 @@ public class IntegrationTest {
      */
     @Test
     public void testFindAll() {
-        final String json = this.restTemplate.getForObject("http://localhost:" + port + "/ator", String.class);
+        final String json = this.restTemplate.getForObject(host + "/ator", String.class);
         assertTrue(json.contains("content"));
     }
 

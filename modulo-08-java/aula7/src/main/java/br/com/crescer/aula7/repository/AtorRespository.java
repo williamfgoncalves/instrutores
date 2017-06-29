@@ -7,6 +7,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  * @author carloshenrique
  */
 public interface AtorRespository extends PagingAndSortingRepository<Ator, Long> {
-    
 
 }
