@@ -15,6 +15,7 @@ public class ExemploService {
     private Exemplo2Service service2;
 
     public BigDecimal get() {
+        service2.save(BigDecimal.ZERO);
         return service2.getTen();
     }
 

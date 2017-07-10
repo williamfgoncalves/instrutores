@@ -14,5 +14,9 @@ public class Exemplo2Service {
         return BigDecimal.TEN;
     }
 
+    public void save(BigDecimal bigDecimal) {
+        //
+    }
+
     
 }
